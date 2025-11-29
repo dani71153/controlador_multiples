@@ -102,6 +102,10 @@ public:
             "controlador_mesas/cambiar_modo", 10,
             std::bind(&ControladorMesas::callbackCambiarModo, this, _1));
 
+        sub_autorizar_entrega_ = this->create_subscription<std_msgs::msg::Bool>(
+            "controlador_mesas/autorizar_entrega", 10,
+            std::bind(&ControladorMesas::callbackAutorizarEntrega, this, _1));
+
         auto nav2_qos = rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable();
         sub_nav2_estado_ = this->create_subscription<std_msgs::msg::Bool>(
             "/nav2_lifecycle_manager_navigation/is_active",
@@ -160,6 +164,7 @@ public:
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/timeout_control");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/reiniciar");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/cambiar_modo");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/autorizar_entrega");
         RCLCPP_INFO(this->get_logger(), "   - /nav2_lifecycle_manager_navigation/is_active");
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Sistema de TF listo.");
@@ -185,6 +190,7 @@ private:
     bool nav2_action_ready_init_reported_ = false;
     bool nav2_nodos_detectados_ = false;
     bool reinicio_en_progreso_ = false;
+    bool entrega_autorizada_ = false; // autorización por lote de entregas
 
     bool odom_recibida_;
     rclcpp::Time odom_last_time_;
@@ -240,6 +246,7 @@ private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_reiniciar_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_modo_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_nav2_estado_;
+    rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_autorizar_entrega_;
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client_;
     GoalHandleNav::SharedPtr goal_handle_;
@@ -259,13 +266,14 @@ private:
 
     bool nav2Disponible()
     {
-        bool action_ok = nav_client_->wait_for_action_server(std::chrono::milliseconds(300));
-        auto topics = this->get_topic_names_and_types();
-        bool lifecycle_ok = false;
-        for (auto &t : topics)
-            if (t.first == "/nav2_lifecycle_manager_navigation/is_active")
-                lifecycle_ok = true;
-        return action_ok && lifecycle_ok;
+        bool action_ok = nav_client_->action_server_is_ready() ||
+                         nav_client_->wait_for_action_server(std::chrono::seconds(1));
+
+        // Si recibimos lifecycle y dice inactivo, respetamos ese estado; de lo contrario,
+        // permitimos navegar si el action server está listo.
+        if (nav2_msg_recibido_ && !nav2_activo_) return false;
+
+        return action_ok;
     }
 
     double yawFromQuat(const geometry_msgs::msg::Quaternion &q) {
@@ -393,8 +401,13 @@ private:
     }
 
     void callbackEntrega(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
+        bool estaba_vacia = cola_entregas_.empty();
         cola_entregas_.push(*msg);
         publicarEstado("Entrega añadida.");
+        if (modo_ == MODO_ENTREGA && estaba_vacia) {
+            entrega_autorizada_ = false; // nueva tanda requiere confirmación
+            RCLCPP_WARN(this->get_logger(), "[ENTREGA] Cola de entregas lista, esperando confirmación del operador.");
+        }
         intentarIniciar();
     }
 
@@ -426,7 +439,22 @@ private:
             modo_ = MODO_PEDIDO;
             automatico_activo_ = true;
         }
+        entrega_autorizada_ = false;
         publicarModoActual();
+        intentarIniciar();
+    }
+
+    void callbackAutorizarEntrega(const std_msgs::msg::Bool::SharedPtr msg) {
+        entrega_autorizada_ = msg->data;
+        if (!entrega_autorizada_) {
+            RCLCPP_INFO(this->get_logger(), "[ENTREGA] Autorización REVOCADA");
+            return;
+        }
+        if (cola_entregas_.empty()) {
+            RCLCPP_WARN(this->get_logger(), "[ENTREGA] Autorización otorgada pero cola de entregas vacía.");
+            return;
+        }
+        RCLCPP_INFO(this->get_logger(), "[ENTREGA] Autorización OTORGADA (lote de entregas).");
         intentarIniciar();
     }
 
@@ -438,6 +466,7 @@ private:
         }
 
         state_ = IDLE;
+        if (modo_ == MODO_ENTREGA) entrega_autorizada_ = false;
     }
 
     void callbackReiniciar(const std_msgs::msg::String::SharedPtr msg) {
@@ -485,6 +514,7 @@ private:
         state_ = IDLE;
         automatico_activo_ = false;
         modo_ = MODO_PEDIDO;
+        entrega_autorizada_ = false;
         ultimo_estado_ = "IDLE";
         ultimo_validacion_.clear();
 
@@ -548,8 +578,21 @@ private:
         if (state_ != IDLE) return;
 
         actualizarColaActiva();
-        if (!cola_activa_) return;
-        if (!cola_activa_->empty()) iniciarNavegacion();
+        if (!cola_activa_) {
+            RCLCPP_DEBUG(this->get_logger(), "[NAV] Sin cola activa definida.");
+            return;
+        }
+        if (cola_activa_->empty()) {
+            RCLCPP_DEBUG(this->get_logger(), "[NAV] Cola activa vacía, nada que iniciar.");
+            return;
+        }
+
+        if (modo_ == MODO_ENTREGA && !entrega_autorizada_) {
+            RCLCPP_WARN(this->get_logger(), "[ENTREGA] No se inicia navegación: falta autorización de operador.");
+            return;
+        }
+
+        iniciarNavegacion();
     }
 
     void iniciarNavegacion() {
@@ -558,6 +601,13 @@ private:
         if (cola_activa_->empty()) return;
 
         if (!nav2Disponible()) {
+            RCLCPP_WARN(this->get_logger(), "[NAV] Nav2 no disponible en este momento, reintenta más tarde.");
+            state_ = IDLE;
+            return;
+        }
+
+        if (modo_ == MODO_ENTREGA && !entrega_autorizada_) {
+            RCLCPP_WARN(this->get_logger(), "[ENTREGA] Bloqueado: se requiere autorización antes de navegar.");
             state_ = IDLE;
             return;
         }
@@ -688,6 +738,7 @@ private:
             objetivos_descartados_++;
             registrarDescartado(objetivo, "validacion_timeout");
             cola_activa_->pop();
+            if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
             state_ = IDLE;
             postTarea();
             return;
@@ -716,6 +767,7 @@ private:
             publicarEstado("Llegada confirmada por odometría.");
             publicarValidacion("validacion_ok");
             cola_activa_->pop();
+            if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
             state_ = IDLE;
             postTarea();
         }
@@ -768,6 +820,7 @@ private:
             if (!cola_pedidos_.empty()) { iniciarNavegacion(); return; }
             modo_ = MODO_ENTREGA;
             publicarModoActual();
+            entrega_autorizada_ = false;
         }
 
         if (modo_ == MODO_ENTREGA) {
