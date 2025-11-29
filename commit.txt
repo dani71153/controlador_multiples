@@ -1,0 +1,10 @@
+Cambios aplicados en src/controlador_multiple.cpp:
+
+Verificación Nav2: chequeo del action server en init, watchdog que registra estado navigate_to_pose, detecta nodos Nav2 si no hay /is_active, y log en el callback de estado Nav2.
+Nuevos tópicos/publishers:
+controlador_mesas/modo_actual (std_msgs::msg::String): publica pedido|entrega|pago|auto en cada tick, al cambiar modo y en arranque.
+controlador_mesas/en_ejecucion (std_msgs::msg::Bool): heartbeat, publica true en cada tick.
+controlador_mesas/objetivos_descartados_lista (std_msgs::msg::String): lista formateada de descartados, actualizada en cada tick.
+Cola de descartados: estructura ObjetivoDescartado (pose+motivo), se agrega cuando falla validación por timeout, se reinicia al reset, y se publica en texto tipo [ (x, y) motivo:...].
+Reinicio robustecido: cancela todas las metas, limpia colas (incluyendo descartados), resetea modo a pedido, desactiva automático, borra estado/validación, repubica estado/validación/modo/colas, logs de inicio/fin y guardia anti reentrada.
+Otros: QoS transient_local para /nav2_lifecycle_manager_navigation/is_active, publicación inicial del modo en init, logs adicionales [NAV2] y [REINICIO].

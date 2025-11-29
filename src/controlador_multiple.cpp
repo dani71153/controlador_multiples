@@ -47,6 +47,9 @@ public:
         ultimo_validacion_ = "";
         nav2_activo_ = false;
 
+        odom_recibida_ = false;
+        odom_last_time_ = this->now();
+
         tf_buffer_   = std::make_shared<tf2_ros::Buffer>(this->get_clock());
         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
@@ -65,6 +68,11 @@ public:
 
         pub_validacion_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/validacion_estado", 20);
         pub_objetivos_descartados_ = this->create_publisher<std_msgs::msg::Float32>("controlador_mesas/objetivos_descartados", 20);
+        pub_modo_actual_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/modo_actual", 20);
+        pub_en_ejecucion_ = this->create_publisher<std_msgs::msg::Bool>("controlador_mesas/en_ejecucion", 10);
+        pub_descartados_lista_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/objetivos_descartados_lista", 20);
+
+        pub_odom_timeout_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/odom_timeout", 20);
 
         sub_odom_ = this->create_subscription<nav_msgs::msg::Odometry>(
             "/odom", 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
@@ -94,35 +102,34 @@ public:
             "controlador_mesas/cambiar_modo", 10,
             std::bind(&ControladorMesas::callbackCambiarModo, this, _1));
 
+        auto nav2_qos = rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable();
         sub_nav2_estado_ = this->create_subscription<std_msgs::msg::Bool>(
             "/nav2_lifecycle_manager_navigation/is_active",
-            10,
+            nav2_qos,
             std::bind(&ControladorMesas::callbackNav2Estado, this, _1)
         );
 
         nav_client_ = rclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose");
         state_ = IDLE;
 
+        verificarNav2ActionServer();
+
         timer_publicacion_ = this->create_wall_timer(
             std::chrono::milliseconds(100),
             std::bind(&ControladorMesas::tickPublicacion, this)
         );
 
-        timer_chequeo_nav2_ = this->create_wall_timer(
-            std::chrono::milliseconds(400),
-            [this]() {
-                RCLCPP_INFO(this->get_logger(), "=== ANALISIS INICIAL NAV2 ===");
-                bool ok = nav2Disponible();
-                if (ok)
-                    RCLCPP_INFO(this->get_logger(), "[INIT] Nav2 DISPONIBLE al inicio.");
-                else
-                    RCLCPP_WARN(this->get_logger(), "[INIT] Nav2 NO disponible al inicio.");
-                RCLCPP_INFO(this->get_logger(), "=== FIN ANALISIS NAV2 ===");
-                timer_chequeo_nav2_.reset();
-            }
+        timer_odom_watchdog_ = this->create_wall_timer(
+            std::chrono::milliseconds(500),
+            std::bind(&ControladorMesas::tickOdomWatchdog, this)
         );
 
-        RCLCPP_INFO(this->get_logger(), "Nodo iniciado con Nav2-check integrado.");
+        timer_nav2_watchdog_ = this->create_wall_timer(
+            std::chrono::seconds(5),
+            std::bind(&ControladorMesas::tickNav2Watchdog, this)
+        );
+
+           RCLCPP_INFO(this->get_logger(), "Nodo iniciado con Nav2-check integrado.");
         RCLCPP_INFO(this->get_logger(), "=== INICIALIZACIÓN DEL CONTROLADOR DE MESAS ===");
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Colas creadas:");
@@ -140,6 +147,9 @@ public:
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/yaw_*");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/validacion_estado");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/objetivos_descartados");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/modo_actual");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/objetivos_descartados_lista");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/en_ejecucion");
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Subscribers creados:");
         RCLCPP_INFO(this->get_logger(), "   - /odom");
@@ -157,6 +167,7 @@ public:
 
         bool nav2_now = nav2Disponible();
         RCLCPP_INFO(this->get_logger(), "[INIT] Estado Nav2: %s", nav2_now ? "Disponible" : "No disponible");
+        publicarModoActual();
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Estado inicial del nodo: IDLE");
         RCLCPP_INFO(this->get_logger(), "=== CONTROLADOR DE MESAS LISTO ===");
@@ -169,11 +180,24 @@ private:
     State state_;
 
     bool nav2_activo_;
+    bool nav2_msg_recibido_ = false;
+    bool nav2_action_ready_prev_ = false;
+    bool nav2_action_ready_init_reported_ = false;
+    bool nav2_nodos_detectados_ = false;
+    bool reinicio_en_progreso_ = false;
+
+    bool odom_recibida_;
+    rclcpp::Time odom_last_time_;
 
     std::queue<geometry_msgs::msg::PoseStamped> cola_pedidos_;
     std::queue<geometry_msgs::msg::PoseStamped> cola_entregas_;
     std::queue<geometry_msgs::msg::PoseStamped> cola_pagos_;
     std::queue<geometry_msgs::msg::PoseStamped>* cola_activa_ = nullptr;
+    struct ObjetivoDescartado {
+        geometry_msgs::msg::PoseStamped pose;
+        std::string motivo;
+    };
+    std::queue<ObjetivoDescartado> cola_descartados_;
 
     nav_msgs::msg::Odometry ultima_odom_;
     rclcpp::Time start_nav_time_;
@@ -202,6 +226,10 @@ private:
     rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr pub_yaw_diff_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_validacion_;
     rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr pub_objetivos_descartados_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_modo_actual_;
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr pub_en_ejecucion_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_descartados_lista_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_odom_timeout_;
 
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr sub_odom_;
     rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr sub_pedidos_;
@@ -217,11 +245,20 @@ private:
     GoalHandleNav::SharedPtr goal_handle_;
 
     rclcpp::TimerBase::SharedPtr timer_publicacion_;
-    rclcpp::TimerBase::SharedPtr timer_chequeo_nav2_;
+    rclcpp::TimerBase::SharedPtr timer_odom_watchdog_;
+    rclcpp::TimerBase::SharedPtr timer_nav2_watchdog_;
+
+    void verificarNav2ActionServer()
+    {
+        bool listo = nav_client_->wait_for_action_server(std::chrono::seconds(2));
+        nav2_activo_ = listo;
+        RCLCPP_INFO(this->get_logger(),
+                    "[INIT] Nav2 action server navigate_to_pose: %s",
+                    listo ? "ACTIVO" : "INACTIVO");
+    }
 
     bool nav2Disponible()
     {
-        RCLCPP_INFO(this->get_logger(), "[NAV2 CHECK] Iniciando verificación...");
         bool action_ok = nav_client_->wait_for_action_server(std::chrono::milliseconds(300));
         auto topics = this->get_topic_names_and_types();
         bool lifecycle_ok = false;
@@ -241,7 +278,6 @@ private:
         ultimo_estado_ = s;
         std_msgs::msg::String m; m.data = s;
         pub_estado_->publish(m);
-        RCLCPP_INFO(this->get_logger(), "%s", s.c_str());
     }
 
     void publicarValidacion(const std::string &s) {
@@ -261,12 +297,93 @@ private:
         std_msgs::msg::Float32 od;
         od.data = objetivos_descartados_;
         pub_objetivos_descartados_->publish(od);
+        std_msgs::msg::String modo_msg;
+        modo_msg.data = modoActualString();
+        pub_modo_actual_->publish(modo_msg);
+        std_msgs::msg::String desc_list;
+        desc_list.data = listaDescartados();
+        pub_descartados_lista_->publish(desc_list);
+        std_msgs::msg::Bool ejec;
+        ejec.data = true;
+        pub_en_ejecucion_->publish(ejec);
+    }
+
+    void tickOdomWatchdog() {
+        rclcpp::Time now = this->now();
+        double diff = (now - odom_last_time_).seconds();
+
+        if (diff > 2.0) {
+            std_msgs::msg::String msg;
+            msg.data = "odom_timeout";
+            pub_odom_timeout_->publish(msg);
+            publicarEstado("ERROR: Odometría no recibida.");
+            state_ = ERROR;
+        }
     }
 
     void callbackNav2Estado(const std_msgs::msg::Bool::SharedPtr msg)
     {
         nav2_activo_ = msg->data;
+        nav2_msg_recibido_ = true;
         publicarEstado(nav2_activo_ ? "Nav2 ACTIVO." : "Nav2 INACTIVO.");
+        RCLCPP_INFO(this->get_logger(), "[NAV2] Estado lifecycle is_active: %s", nav2_activo_ ? "true" : "false");
+    }
+
+    void tickNav2Watchdog()
+    {
+        bool listo = nav_client_->action_server_is_ready();
+
+        if (!nav2_action_ready_init_reported_ || listo != nav2_action_ready_prev_) {
+            RCLCPP_INFO(this->get_logger(),
+                        "[NAV2] Action server navigate_to_pose: %s",
+                        listo ? "ACTIVO" : "INACTIVO");
+            nav2_action_ready_prev_ = listo;
+            nav2_action_ready_init_reported_ = true;
+        }
+
+        if (!nav2_msg_recibido_) {
+            if (nav2_nodos_detectados_) return;
+            auto nav2_nodes = detectarNodosNav2();
+            if (!nav2_nodes.empty()) {
+                std::stringstream ss;
+                ss << "[NAV2] Nodos detectados: ";
+                bool first = true;
+                for (auto &n : nav2_nodes) {
+                    if (!first) ss << ", ";
+                    ss << n;
+                    first = false;
+                }
+                RCLCPP_INFO(this->get_logger(), "%s (sin mensajes is_active)", ss.str().c_str());
+                nav2_nodos_detectados_ = true;
+            } else {
+                RCLCPP_WARN(this->get_logger(),
+                            "[NAV2] No se detectan nodos Nav2 en el grafo (Nav2 no inicializado).");
+            }
+        }
+    }
+
+    std::vector<std::string> detectarNodosNav2()
+    {
+        static const std::vector<std::string> patrones = {
+            "nav2_lifecycle_manager_navigation",
+            "controller_server",
+            "planner_server",
+            "smoother_server",
+            "recoveries_server",
+            "bt_navigator"
+        };
+
+        std::vector<std::string> encontrados;
+        auto node_names = this->get_node_graph_interface()->get_node_names();
+        for (const auto &name : node_names) {
+            for (const auto &pat : patrones) {
+                if (name.find(pat) != std::string::npos) {
+                    encontrados.push_back(name);
+                    break;
+                }
+            }
+        }
+        return encontrados;
     }
 
     void callbackPedido(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
@@ -288,54 +405,36 @@ private:
     }
 
     void callbackTimeoutControl(const std_msgs::msg::String::SharedPtr msg) {
-        if (msg->data == "on") {
-            timeout_habilitado_ = true;
-            publicarEstado("Timeout habilitado.");
-        }
-        else if (msg->data == "off") {
-            timeout_habilitado_ = false;
-            publicarEstado("Timeout deshabilitado.");
-        }
-        else {
-            publicarEstado("Comando timeout inválido.");
-        }
+        if (msg->data == "on") timeout_habilitado_ = true;
+        else if (msg->data == "off") timeout_habilitado_ = false;
     }
 
     void callbackCambiarModo(const std_msgs::msg::String::SharedPtr msg) {
         if (msg->data == "pedido") {
             modo_ = MODO_PEDIDO;
             automatico_activo_ = false;
-            publicarEstado("Modo PEDIDO");
         }
         else if (msg->data == "entrega") {
             modo_ = MODO_ENTREGA;
             automatico_activo_ = false;
-            publicarEstado("Modo ENTREGA");
         }
         else if (msg->data == "pago") {
             modo_ = MODO_PAGO;
             automatico_activo_ = false;
-            publicarEstado("Modo PAGO");
         }
         else if (msg->data == "auto") {
             modo_ = MODO_PEDIDO;
             automatico_activo_ = true;
-            publicarEstado("Modo AUTO activado");
         }
-        else {
-            publicarEstado("Modo inválido.");
-        }
-
+        publicarModoActual();
         intentarIniciar();
     }
 
     void callbackLimpiarCola(const std_msgs::msg::String::SharedPtr) {
         if (cola_activa_) while (!cola_activa_->empty()) cola_activa_->pop();
-        publicarEstado("Cola actual eliminada.");
 
         if (state_ == NAVIGATING && goal_handle_) {
             nav_client_->async_cancel_goal(goal_handle_);
-            publicarEstado("Navegación cancelada.");
         }
 
         state_ = IDLE;
@@ -346,7 +445,21 @@ private:
     }
 
     void reiniciarNodo() {
-        publicarEstado("Reiniciando...");
+        if (reinicio_en_progreso_) {
+            RCLCPP_WARN(this->get_logger(), "[REINICIO] Ya en progreso, se ignora solicitud.");
+            return;
+        }
+        reinicio_en_progreso_ = true;
+        RCLCPP_WARN(this->get_logger(), "[REINICIO] Reinicio solicitado (inicio).");
+
+        // Cancelar cualquier objetivo activo o pendiente, aun si goal_handle_ no está disponible.
+        try {
+            nav_client_->async_cancel_all_goals();
+        } catch (const std::exception &e) {
+            RCLCPP_ERROR(this->get_logger(), "[REINICIO] Error cancelando metas: %s", e.what());
+        } catch (...) {
+            RCLCPP_ERROR(this->get_logger(), "[REINICIO] Error desconocido cancelando metas.");
+        }
 
         if (goal_handle_) {
             try {
@@ -355,7 +468,6 @@ private:
                     st == rclcpp_action::GoalStatus::STATUS_EXECUTING)
                 {
                     nav_client_->async_cancel_goal(goal_handle_);
-                    publicarEstado("Navegación cancelada.");
                 }
             } catch (...) {}
         }
@@ -363,6 +475,7 @@ private:
         while (!cola_pedidos_.empty()) cola_pedidos_.pop();
         while (!cola_entregas_.empty()) cola_entregas_.pop();
         while (!cola_pagos_.empty()) cola_pagos_.pop();
+        while (!cola_descartados_.empty()) cola_descartados_.pop();
 
         timeout_habilitado_ = false;
         odom_stable_ = false;
@@ -370,8 +483,17 @@ private:
 
         goal_handle_.reset();
         state_ = IDLE;
+        automatico_activo_ = false;
+        modo_ = MODO_PEDIDO;
+        ultimo_estado_ = "IDLE";
+        ultimo_validacion_.clear();
 
-        publicarEstado("Reinicio completado.");
+        publicarModoActual();
+        publicarEstado("Reiniciado.");
+        publicarValidacion("reiniciado");
+        publicarCola();
+        reinicio_en_progreso_ = false;
+        RCLCPP_INFO(this->get_logger(), "[REINICIO] Reinicio completado.");
     }
 
     void publicarCola() {
@@ -392,7 +514,7 @@ private:
         auto &m = cola->front();
         {
             std::stringstream ss;
-            ss << "Mesa actual: (" << m.pose.position.x << ", " << m.pose.position.y << ")";
+            ss << "(" << m.pose.position.x << ", " << m.pose.position.y << ")";
             actual.data = ss.str();
         }
 
@@ -423,58 +545,30 @@ private:
     }
 
     void intentarIniciar() {
-        RCLCPP_INFO(this->get_logger(), "[FLOW] intentarIniciar() llamado. state=%d", state_);
-
-        if (state_ != IDLE) {
-            RCLCPP_INFO(this->get_logger(), "[FLOW] No inicia porque state != IDLE");
-            return;
-        }
+        if (state_ != IDLE) return;
 
         actualizarColaActiva();
-
-        if (!cola_activa_) {
-            RCLCPP_WARN(this->get_logger(), "[FLOW] Cola activa es nullptr.");
-            return;
-        }
-
-        RCLCPP_INFO(this->get_logger(), "[FLOW] Cola activa size=%zu", cola_activa_->size());
-
-        if (!cola_activa_->empty()) {
-            RCLCPP_INFO(this->get_logger(), "[FLOW] Cola NO vacía. Llamando iniciarNavegacion().");
-            iniciarNavegacion();
-        } else {
-            RCLCPP_INFO(this->get_logger(), "[FLOW] Cola vacía. No se inicia navegación.");
-        }
+        if (!cola_activa_) return;
+        if (!cola_activa_->empty()) iniciarNavegacion();
     }
 
     void iniciarNavegacion() {
-        RCLCPP_INFO(this->get_logger(), "[FLOW] iniciarNavegacion() llamado.");
-
         actualizarColaActiva();
-        if (!cola_activa_) {
-            RCLCPP_WARN(this->get_logger(), "[FLOW] iniciarNavegacion(): cola_activa_ es nullptr.");
-            return;
-        }
+        if (!cola_activa_) return;
+        if (cola_activa_->empty()) return;
 
-        if (cola_activa_->empty()) {
-            RCLCPP_INFO(this->get_logger(), "[FLOW] iniciarNavegacion(): cola vacía, no hay objetivo.");
-            return;
-        }
-
-        RCLCPP_INFO(this->get_logger(), "[FLOW] iniciarNavegacion(): llamando nav2Disponible().");
         if (!nav2Disponible()) {
-            publicarEstado("ERROR: Nav2 NO está ejecutándose.");
             state_ = IDLE;
-            RCLCPP_WARN(this->get_logger(), "[FLOW] iniciarNavegacion(): nav2Disponible() = false, abortando.");
+            return;
+        }
+
+        if (!odom_recibida_) {
+            publicarEstado("ERROR: No se mueve sin odometría previa.");
+            state_ = ERROR;
             return;
         }
 
         auto objetivo = cola_activa_->front();
-        RCLCPP_INFO(this->get_logger(),
-                    "[FLOW] iniciarNavegacion(): objetivo en (%.3f, %.3f, frame=%s)",
-                    objetivo.pose.position.x,
-                    objetivo.pose.position.y,
-                    objetivo.header.frame_id.c_str());
 
         NavigateToPose::Goal goal;
         goal.pose = objetivo;
@@ -489,7 +583,6 @@ private:
         options.result_callback =
             std::bind(&ControladorMesas::resultCallback, this, _1);
 
-        RCLCPP_INFO(this->get_logger(), "[FLOW] iniciarNavegacion(): enviando goal a Nav2...");
         nav_client_->async_send_goal(goal, options);
     }
 
@@ -517,7 +610,6 @@ private:
 
         switch (result.code) {
             case rclcpp_action::ResultCode::SUCCEEDED:
-                publicarEstado("Nav2 éxito — validando...");
                 state_ = WAITING_ODOM_CONFIRM;
                 odom_stable_ = false;
                 inicio_validacion_odom_ = this->now();
@@ -542,6 +634,9 @@ private:
 
     void callbackOdom(const nav_msgs::msg::Odometry::SharedPtr msg)
     {
+        odom_recibida_ = true;
+        odom_last_time_ = this->now();
+
         ultima_odom_ = *msg;
 
         geometry_msgs::msg::PoseStamped odom_raw;
@@ -590,12 +685,10 @@ private:
         if (tiempo_validando > TIMEOUT_VALIDACION) {
             publicarEstado("Validación falló — timeout.");
             publicarValidacion("validacion_timeout");
-
             objetivos_descartados_++;
-
+            registrarDescartado(objetivo, "validacion_timeout");
             cola_activa_->pop();
             state_ = IDLE;
-
             postTarea();
             return;
         }
@@ -622,39 +715,71 @@ private:
         if ((this->now() - odom_stable_start_).seconds() >= TIEMPO_ESTABILIDAD) {
             publicarEstado("Llegada confirmada por odometría.");
             publicarValidacion("validacion_ok");
-
             cola_activa_->pop();
             state_ = IDLE;
-
             postTarea();
         }
     }
 
     void postTarea() {
-        if (automatico_activo_) {
-            avanzarModoAutomatico();
-        } else {
-            intentarIniciar();
+        if (automatico_activo_) avanzarModoAutomatico();
+        else intentarIniciar();
+    }
+
+    std::string modoActualString() const {
+        if (automatico_activo_) return "auto";
+        switch (modo_) {
+            case MODO_PEDIDO: return "pedido";
+            case MODO_ENTREGA: return "entrega";
+            case MODO_PAGO: return "pago";
+            default: return "pedido";
         }
+    }
+
+    void publicarModoActual() {
+        std_msgs::msg::String m;
+        m.data = modoActualString();
+        pub_modo_actual_->publish(m);
+    }
+
+    void registrarDescartado(const geometry_msgs::msg::PoseStamped &pose, const std::string &motivo) {
+        cola_descartados_.push(ObjetivoDescartado{pose, motivo});
+    }
+
+    std::string listaDescartados() const {
+        std::queue<ObjetivoDescartado> copia = cola_descartados_;
+        std::stringstream ss;
+        ss << "Descartados: [";
+        bool first = true;
+        while (!copia.empty()) {
+            const auto &d = copia.front();
+            if (!first) ss << ", ";
+            ss << "(" << d.pose.pose.position.x << ", " << d.pose.pose.position.y << ")";
+            if (!d.motivo.empty()) ss << " motivo:" << d.motivo;
+            first = false;
+            copia.pop();
+        }
+        ss << "]";
+        return ss.str();
     }
 
     void avanzarModoAutomatico() {
         if (modo_ == MODO_PEDIDO) {
             if (!cola_pedidos_.empty()) { iniciarNavegacion(); return; }
             modo_ = MODO_ENTREGA;
-            publicarEstado("AUTO → ENTREGA");
+            publicarModoActual();
         }
 
         if (modo_ == MODO_ENTREGA) {
             if (!cola_entregas_.empty()) { iniciarNavegacion(); return; }
             modo_ = MODO_PAGO;
-            publicarEstado("AUTO → PAGO");
+            publicarModoActual();
         }
 
         if (modo_ == MODO_PAGO) {
             if (!cola_pagos_.empty()) { iniciarNavegacion(); return; }
-            publicarEstado("AUTO → Ronda completa");
             automatico_activo_ = false;
+            publicarModoActual();
             return;
         }
 

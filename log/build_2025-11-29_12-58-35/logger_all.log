@@ -1,0 +1,91 @@
+[0.155s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.155s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x74205a91b3b0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x74205a91aae0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x74205a91aae0>>)
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.209s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/daniel/controlador_multiples'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.254s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'controlador_multiples'
+[0.254s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.254s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.254s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.254s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.254s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'cmake_target' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'cmake_force_configure' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'ament_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'catkin_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'controlador_multiples' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.283s] DEBUG:colcon.colcon_core.verb:Building package 'controlador_multiples' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/daniel/controlador_multiples/build/controlador_multiples', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/daniel/controlador_multiples/install/controlador_multiples', 'merge_install': False, 'path': '/home/daniel/controlador_multiples', 'symlink_install': True, 'test_result_base': None}
+[0.283s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.285s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.285s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/daniel/controlador_multiples' with build type 'ament_cmake'
+[0.286s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/daniel/controlador_multiples'
+[0.289s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.289s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.314s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[30.582s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[30.597s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/daniel/controlador_multiples/build/controlador_multiples
+[30.635s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(controlador_multiples)
+[30.636s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/daniel/controlador_multiples/build/controlador_multiples
+[30.640s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples' for CMake module files
+[30.641s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples' for CMake config files
+[30.641s] Level 1:colcon.colcon_core.shell:create_environment_hook('controlador_multiples', 'cmake_prefix_path')
+[30.642s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/hook/cmake_prefix_path.dsv'
+[30.645s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/hook/cmake_prefix_path.sh'
+[30.647s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/lib'
+[30.647s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/bin'
+[30.647s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/lib/pkgconfig/controlador_multiples.pc'
+[30.651s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/lib/python3.12/site-packages'
+[30.651s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/bin'
+[30.652s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.dsv'
+[30.652s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.sh'
+[30.653s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.bash'
+[30.654s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.zsh'
+[30.655s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/controlador_multiples/install/controlador_multiples/share/colcon-core/packages/controlador_multiples)
+[30.656s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(controlador_multiples)
+[30.656s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples' for CMake module files
+[30.657s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples' for CMake config files
+[30.657s] Level 1:colcon.colcon_core.shell:create_environment_hook('controlador_multiples', 'cmake_prefix_path')
+[30.657s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/hook/cmake_prefix_path.dsv'
+[30.658s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/hook/cmake_prefix_path.sh'
+[30.658s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/lib'
+[30.659s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/bin'
+[30.659s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/lib/pkgconfig/controlador_multiples.pc'
+[30.659s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/lib/python3.12/site-packages'
+[30.660s] Level 1:colcon.colcon_core.environment:checking '/home/daniel/controlador_multiples/install/controlador_multiples/bin'
+[30.661s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.dsv'
+[30.661s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.sh'
+[30.662s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.bash'
+[30.663s] INFO:colcon.colcon_core.shell:Creating package script '/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.zsh'
+[30.664s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/daniel/controlador_multiples/install/controlador_multiples/share/colcon-core/packages/controlador_multiples)
+[30.664s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[30.664s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[30.665s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[30.665s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[30.672s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[30.673s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[30.673s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[30.697s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[30.697s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/daniel/controlador_multiples/install/local_setup.sh'
+[30.698s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/daniel/controlador_multiples/install/_local_setup_util_sh.py'
+[30.700s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/daniel/controlador_multiples/install/setup.sh'
+[30.705s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/daniel/controlador_multiples/install/local_setup.bash'
+[30.706s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/daniel/controlador_multiples/install/setup.bash'
+[30.708s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/daniel/controlador_multiples/install/local_setup.zsh'
+[30.709s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/daniel/controlador_multiples/install/setup.zsh'
