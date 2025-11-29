@@ -1,0 +1,25 @@
+[0.020s] Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[0.097s] [ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[21.306s] [100%] [32m[1mLinking CXX executable controlador_multiple[0m
+[22.494s] [100%] Built target controlador_multiple
+[22.508s] Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[22.521s] Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/daniel/controlador_multiples/build/controlador_multiples
+[22.530s] -- Install configuration: ""
+[22.531s] -- Execute custom install script
+[22.531s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/lib/controlador_multiples/controlador_multiple
+[22.531s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/ament_index/resource_index/package_run_dependencies/controlador_multiples
+[22.532s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/ament_index/resource_index/parent_prefix_path/controlador_multiples
+[22.532s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/ament_prefix_path.sh
+[22.533s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/ament_prefix_path.dsv
+[22.533s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/path.sh
+[22.533s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/path.dsv
+[22.533s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.bash
+[22.533s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.sh
+[22.534s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.zsh
+[22.534s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.dsv
+[22.534s] -- Symlinking: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.dsv
+[22.545s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/ament_index/resource_index/packages/controlador_multiples
+[22.545s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/cmake/controlador_multiplesConfig.cmake
+[22.545s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/cmake/controlador_multiplesConfig-version.cmake
+[22.545s] -- Up-to-date symlink: /home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.xml
+[22.547s] Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/daniel/controlador_multiples/build/controlador_multiples

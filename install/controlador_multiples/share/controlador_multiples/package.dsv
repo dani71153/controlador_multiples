@@ -1,0 +1,6 @@
+source;share/controlador_multiples/hook/cmake_prefix_path.dsv
+source;share/controlador_multiples/hook/cmake_prefix_path.sh
+source;share/controlador_multiples/local_setup.bash
+source;share/controlador_multiples/local_setup.dsv
+source;share/controlador_multiples/local_setup.sh
+source;share/controlador_multiples/local_setup.zsh

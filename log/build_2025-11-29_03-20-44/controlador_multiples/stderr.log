@@ -1,0 +1,7 @@
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In constructor ‘[01m[KControladorMesas::[01;32m[KControladorMesas[m[K()[m[K’:
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:101:83:[m[K [01;31m[Kerror: [m[K‘[01m[KcallbackTimeoutControl[m[K’ is not a member of ‘[01m[KControladorMesas[m[K’
+  101 |             "controlador_mesas/timeout_control", 10, std::bind(&ControladorMesas::[01;31m[KcallbackTimeoutControl[m[K, this, _1));
+      |                                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

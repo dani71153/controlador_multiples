@@ -1,0 +1,10 @@
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/uninstall.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/controlador_multiples_uninstall.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/controlador_multiple.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/test.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/edit_cache.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/rebuild_cache.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/list_install_components.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/install.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/install/local.dir
+/home/daniel/controlador_multiples/build/controlador_multiples/CMakeFiles/install/strip.dir

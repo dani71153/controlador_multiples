@@ -1,0 +1,281 @@
+[0.000000] (-) TimerEvent: {}
+[0.000272] (controlador_multiples) JobQueued: {'identifier': 'controlador_multiples', 'dependencies': OrderedDict()}
+[0.000528] (controlador_multiples) JobStarted: {'identifier': 'controlador_multiples'}
+[0.015882] (controlador_multiples) JobProgress: {'identifier': 'controlador_multiples', 'progress': 'cmake'}
+[0.016570] (controlador_multiples) JobProgress: {'identifier': 'controlador_multiples', 'progress': 'build'}
+[0.017187] (controlador_multiples) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/controlador_multiples/build/controlador_multiples', '--', '-j4', '-l4'], 'cwd': '/home/daniel/controlador_multiples/build/controlador_multiples', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'daniel', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz:/usr/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller/lib:/home/daniel/interfaz_hardware_omni_v1/install/lib:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller/lib:/home/daniel/interfaz_hardware_omni_v1/install/lib:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller/lib:/home/daniel/omni_4wd_controller/install/omni_4wd_controller/lib:/home/daniel/interfaz_hardware_omni_v1/install/interfaz_hardware_omni_v1/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/daniel', 'CHROME_DESKTOP': 'code.desktop', 'TERM_PROGRAM_VERSION': '1.105.1', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '2679', 'SYSTEMD_EXEC_PID': '2943', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '5328', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/daniel/controlador_multiples/install:/home/daniel/diff_drive_controller/diff_drive_controller/install:/home/daniel/omni_4wd_controller/install:/home/daniel/interfaz_hardware_omni_v1/install:/home/daniel/danbot_v1_ws/install:/home/daniel/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'daniel', 'JOURNAL_STREAM': '9:22110', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'daniel', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/daniel/miniconda3/bin:/home/daniel/miniconda3/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/daniel-NucBoxG5:@/tmp/.ICE-unix/2911,unix/daniel-NucBoxG5:/tmp/.ICE-unix/2911', 'INVOCATION_ID': '5bcc56236d0b49ecbd0b1641601cca5b', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'PYTHONSTARTUP': '/home/daniel/.config/Code/User/workspaceStorage/bdea17b2e6a5c457d08c933a8e5ecf28/ms-python.python/pythonrc.py', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.NM9TG3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-5a8837ef8f.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/daniel/controlador_multiples/install/controlador_multiples:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller:/home/daniel/ros2_ws/install/sllidar_ros2:/home/daniel/omni_4wd_controller/install/omni_4wd_controller:/home/daniel/interfaz_hardware_omni_v1/install/interfaz_hardware_omni_v1:/home/daniel/danbot_v1_ws/install/urdf_robot_v1:/home/daniel/danbot_v1_ws/install/test_ground:/home/daniel/danbot_v1_ws/install/rf2o_laser_odometry:/home/daniel/danbot_v1_ws/install/omni_robot_description:/home/daniel/danbot_v1_ws/install/omni_control:/home/daniel/danbot_v1_ws/install/omni_cartographer:/home/daniel/danbot_v1_ws/install/danbot_v1_ws:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/daniel/controlador_multiples/build/controlador_multiples', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/daniel/danbot_v1_ws/build/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v2/lib/python3.12/site-packages:/home/daniel/danbot_v1_ws/build/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/controlador_motores_v1/lib/python3.12/site-packages:/home/daniel/danbot_v1_ws/build/cinematica_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/home/daniel/controlador_multiples/install/controlador_multiples:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller:/home/daniel/ros2_ws/install/sllidar_ros2:/home/daniel/omni_4wd_controller/install/omni_4wd_controller:/home/daniel/interfaz_hardware_omni_v1/install/interfaz_hardware_omni_v1:/home/daniel/danbot_v1_ws/install/urdf_robot_v1:/home/daniel/danbot_v1_ws/install/test_ground:/home/daniel/danbot_v1_ws/install/rf2o_laser_odometry:/home/daniel/danbot_v1_ws/install/omni_robot_description:/home/daniel/danbot_v1_ws/install/omni_control:/home/daniel/danbot_v1_ws/install/omni_cartographer:/home/daniel/danbot_v1_ws/install/danbot_v1_ws:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy'}), 'shell': False}
+[0.097505] (controlador_multiples) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o\x1b[0m\n'}
+[0.099840] (-) TimerEvent: {}
+[0.200125] (-) TimerEvent: {}
+[0.300437] (-) TimerEvent: {}
+[0.401042] (-) TimerEvent: {}
+[0.501997] (-) TimerEvent: {}
+[0.602339] (-) TimerEvent: {}
+[0.703094] (-) TimerEvent: {}
+[0.803450] (-) TimerEvent: {}
+[0.903772] (-) TimerEvent: {}
+[1.004110] (-) TimerEvent: {}
+[1.105508] (-) TimerEvent: {}
+[1.205854] (-) TimerEvent: {}
+[1.306166] (-) TimerEvent: {}
+[1.406496] (-) TimerEvent: {}
+[1.506812] (-) TimerEvent: {}
+[1.607117] (-) TimerEvent: {}
+[1.707500] (-) TimerEvent: {}
+[1.807805] (-) TimerEvent: {}
+[1.908113] (-) TimerEvent: {}
+[2.008425] (-) TimerEvent: {}
+[2.108760] (-) TimerEvent: {}
+[2.209069] (-) TimerEvent: {}
+[2.309384] (-) TimerEvent: {}
+[2.409698] (-) TimerEvent: {}
+[2.510010] (-) TimerEvent: {}
+[2.610314] (-) TimerEvent: {}
+[2.710660] (-) TimerEvent: {}
+[2.810966] (-) TimerEvent: {}
+[2.911278] (-) TimerEvent: {}
+[3.011595] (-) TimerEvent: {}
+[3.111905] (-) TimerEvent: {}
+[3.212217] (-) TimerEvent: {}
+[3.312795] (-) TimerEvent: {}
+[3.413132] (-) TimerEvent: {}
+[3.513554] (-) TimerEvent: {}
+[3.548367] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:28:47:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KNavigateTo_pose\x1b[m\x1b[K\xe2\x80\x99 in namespace \xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action\x1b[m\x1b[K\xe2\x80\x99 does not name a type; did you mean \xe2\x80\x98\x1b[01m\x1b[KNavigateToPose\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.548685] (controlador_multiples) StderrLine: {'line': b'   28 |     using NavigateToPose = nav2_msgs::action::\x1b[01;31m\x1b[KNavigateTo_pose\x1b[m\x1b[K;\n'}
+[3.548833] (controlador_multiples) StderrLine: {'line': b'      |                                               \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.548948] (controlador_multiples) StderrLine: {'line': b'      |                                               \x1b[32m\x1b[KNavigateToPose\x1b[m\x1b[K\n'}
+[3.549875] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:29:59:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KNavigateToPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.550112] (controlador_multiples) StderrLine: {'line': b'   29 |     using GoalHandleNav = rclcpp_action::ClientGoalHandle<\x1b[01;31m\x1b[KNavigateToPose\x1b[m\x1b[K>;\n'}
+[3.550242] (controlador_multiples) StderrLine: {'line': b'      |                                                           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.550354] (controlador_multiples) StderrLine: {'line': b'      |                                                           \x1b[32m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\n'}
+[3.551478] (controlador_multiples) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/navigate_to_pose.hpp:7\x1b[m\x1b[K,\n'}
+[3.551719] (controlador_multiples) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:16\x1b[m\x1b[K:\n'}
+[3.551835] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[3.551945] (controlador_multiples) StderrLine: {'line': b' 1435 | typedef struct NavigateToPose \x1b[01;36m\x1b[KNavigateToPose\x1b[m\x1b[K;\n'}
+[3.552044] (controlador_multiples) StderrLine: {'line': b'      |                               \x1b[01;36m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.552143] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:29:73:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[3.552241] (controlador_multiples) StderrLine: {'line': b'   29 |     using GoalHandleNav = rclcpp_action::ClientGoalHandle<NavigateToPose\x1b[01;31m\x1b[K>\x1b[m\x1b[K;\n'}
+[3.552337] (controlador_multiples) StderrLine: {'line': b'      |                                                                         \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.613663] (-) TimerEvent: {}
+[3.713973] (-) TimerEvent: {}
+[3.754874] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:27:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KNavigateToPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.755116] (controlador_multiples) StderrLine: {'line': b'  164 |     rclcpp_action::Client<\x1b[01;31m\x1b[KNavigateToPose\x1b[m\x1b[K>::SharedPtr nav_client_;\n'}
+[3.755230] (controlador_multiples) StderrLine: {'line': b'      |                           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.755434] (controlador_multiples) StderrLine: {'line': b'      |                           \x1b[32m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\n'}
+[3.755538] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[3.755649] (controlador_multiples) StderrLine: {'line': b' 1435 | typedef struct NavigateToPose \x1b[01;36m\x1b[KNavigateToPose\x1b[m\x1b[K;\n'}
+[3.755738] (controlador_multiples) StderrLine: {'line': b'      |                               \x1b[01;36m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.755857] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:41:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[3.755945] (controlador_multiples) StderrLine: {'line': b'  164 |     rclcpp_action::Client<NavigateToPose\x1b[01;31m\x1b[K>\x1b[m\x1b[K::SharedPtr nav_client_;\n'}
+[3.756030] (controlador_multiples) StderrLine: {'line': b'      |                                         \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.756117] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:44:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 at end of member declaration\n'}
+[3.756206] (controlador_multiples) StderrLine: {'line': b'  164 |     rclcpp_action::Client<NavigateToPose>::\x1b[01;31m\x1b[KSharedPtr\x1b[m\x1b[K nav_client_;\n'}
+[3.756301] (controlador_multiples) StderrLine: {'line': b'      |                                            \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[3.756391] (controlador_multiples) StderrLine: {'line': b'      |                                                     \x1b[32m\x1b[K;\x1b[m\x1b[K\n'}
+[3.757589] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:54:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_client_\x1b[m\x1b[K\xe2\x80\x99 does not name a type; did you mean \xe2\x80\x98\x1b[01m\x1b[Krmw_client_t\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.757779] (controlador_multiples) StderrLine: {'line': b'  164 |     rclcpp_action::Client<NavigateToPose>::SharedPtr \x1b[01;31m\x1b[Knav_client_\x1b[m\x1b[K;\n'}
+[3.757886] (controlador_multiples) StderrLine: {'line': b'      |                                                      \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.757980] (controlador_multiples) StderrLine: {'line': b'      |                                                      \x1b[32m\x1b[Krmw_client_t\x1b[m\x1b[K\n'}
+[3.761946] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:165:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGoalHandleNav\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[3.762248] (controlador_multiples) StderrLine: {'line': b'  165 |     \x1b[01;31m\x1b[KGoalHandleNav\x1b[m\x1b[K::SharedPtr goal_handle_;\n'}
+[3.762364] (controlador_multiples) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.762483] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:418:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGoalHandleNav\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.762586] (controlador_multiples) StderrLine: {'line': b'  418 |         \x1b[01;31m\x1b[KGoalHandleNav\x1b[m\x1b[K::SharedPtr handle,\n'}
+[3.762680] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.762771] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:418:34:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K,\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K...\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[Khandle\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.762866] (controlador_multiples) StderrLine: {'line': b'  418 |         GoalHandleNav::SharedPtr \x1b[01;31m\x1b[Khandle\x1b[m\x1b[K,\n'}
+[3.762967] (controlador_multiples) StderrLine: {'line': b'      |                                  \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[3.764959] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:31:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KGoalHandleNav\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[3.765170] (controlador_multiples) StderrLine: {'line': b'  425 |     void resultCallback(const \x1b[01;31m\x1b[KGoalHandleNav\x1b[m\x1b[K::WrappedResult &result)\n'}
+[3.765276] (controlador_multiples) StderrLine: {'line': b'      |                               \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.765367] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:60:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected unqualified-id before \xe2\x80\x98\x1b[01m\x1b[K&\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[3.765457] (controlador_multiples) StderrLine: {'line': b'  425 |     void resultCallback(const GoalHandleNav::WrappedResult \x1b[01;31m\x1b[K&\x1b[m\x1b[Kresult)\n'}
+[3.765558] (controlador_multiples) StderrLine: {'line': b'      |                                                            \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.765647] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:59:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K)\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[K&\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[3.765736] (controlador_multiples) StderrLine: {'line': b'  425 |     void resultCallback\x1b[34m\x1b[K(\x1b[m\x1b[Kconst GoalHandleNav::WrappedResult\x1b[01;31m\x1b[K \x1b[m\x1b[K\x1b[32m\x1b[K&\x1b[m\x1b[Kresult)\n'}
+[3.765827] (controlador_multiples) StderrLine: {'line': b'      |                        \x1b[34m\x1b[K~\x1b[m\x1b[K                                  \x1b[01;31m\x1b[K^\x1b[m\x1b[K\x1b[32m\x1b[K~\x1b[m\x1b[K\n'}
+[3.765916] (controlador_multiples) StderrLine: {'line': b'      |                                                           \x1b[32m\x1b[K)\x1b[m\x1b[K\n'}
+[3.766004] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:60:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 at end of member declaration\n'}
+[3.766100] (controlador_multiples) StderrLine: {'line': b'  425 |     void resultCallback(const GoalHandleNav::WrappedResult \x1b[01;31m\x1b[K&\x1b[m\x1b[Kresult)\n'}
+[3.766193] (controlador_multiples) StderrLine: {'line': b'      |                                                            \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.766285] (controlador_multiples) StderrLine: {'line': b'      |                                                             \x1b[32m\x1b[K;\x1b[m\x1b[K\n'}
+[3.767318] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:61:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kresult\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[3.767471] (controlador_multiples) StderrLine: {'line': b'  425 |     void resultCallback(const GoalHandleNav::WrappedResult &\x1b[01;31m\x1b[Kresult\x1b[m\x1b[K)\n'}
+[3.767571] (controlador_multiples) StderrLine: {'line': b'      |                                                             \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[3.805474] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KControladorMesas::\x1b[01;32m\x1b[KControladorMesas\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.805707] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krmw_client_t\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.805829] (controlador_multiples) StderrLine: {'line': b'  103 |         \x1b[01;31m\x1b[Knav_client_\x1b[m\x1b[K = rclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose");\n'}
+[3.805922] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.806013] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[32m\x1b[Krmw_client_t\x1b[m\x1b[K\n'}
+[3.806441] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KNavigateToPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.806561] (controlador_multiples) StderrLine: {'line': b'  103 |         nav_client_ = rclcpp_action::create_client<\x1b[01;31m\x1b[KNavigateToPose\x1b[m\x1b[K>(this, "navigate_to_pose");\n'}
+[3.806649] (controlador_multiples) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.806735] (controlador_multiples) StderrLine: {'line': b'      |                                                    \x1b[32m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\n'}
+[3.806821] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[3.806917] (controlador_multiples) StderrLine: {'line': b' 1435 | typedef struct NavigateToPose \x1b[01;36m\x1b[KNavigateToPose\x1b[m\x1b[K;\n'}
+[3.807006] (controlador_multiples) StderrLine: {'line': b'      |                               \x1b[01;36m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.807226] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:67:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kcreate_client<<expression error> >(ControladorMesas*, const char [17])\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.807326] (controlador_multiples) StderrLine: {'line': b'  103 |         nav_client_ = \x1b[01;31m\x1b[Krclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose")\x1b[m\x1b[K;\n'}
+[3.807413] (controlador_multiples) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.807509] (controlador_multiples) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38\x1b[m\x1b[K,\n'}
+[3.807596] (controlador_multiples) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:8\x1b[m\x1b[K:\n'}
+[3.807683] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::\x1b[01;32m\x1b[Kcreate_client\x1b[m\x1b[K(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const std::string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.807774] (controlador_multiples) StderrLine: {'line': b'   44 | \x1b[01;36m\x1b[Kcreate_client\x1b[m\x1b[K(\n'}
+[3.807859] (controlador_multiples) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.807948] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 5 arguments, 2 provided\n'}
+[3.808033] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::\x1b[01;32m\x1b[Kcreate_client\x1b[m\x1b[K(NodeT, const std::string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.808125] (controlador_multiples) StderrLine: {'line': b'  105 | \x1b[01;36m\x1b[Kcreate_client\x1b[m\x1b[K(\n'}
+[3.808210] (controlador_multiples) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.808294] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[3.808377] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:67:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[3.808468] (controlador_multiples) StderrLine: {'line': b'  103 |         nav_client_ = \x1b[01;31m\x1b[Krclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose")\x1b[m\x1b[K;\n'}
+[3.808555] (controlador_multiples) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.814081] (-) TimerEvent: {}
+[3.829015] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool ControladorMesas::\x1b[01;32m\x1b[Knav2Disponible\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.829273] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:171:14:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krmw_client_t\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.829383] (controlador_multiples) StderrLine: {'line': b'  171 |         if (!\x1b[01;31m\x1b[Knav_client_\x1b[m\x1b[K->wait_for_action_server(std::chrono::milliseconds(300)))\n'}
+[3.829490] (controlador_multiples) StderrLine: {'line': b'      |              \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.829588] (controlador_multiples) StderrLine: {'line': b'      |              \x1b[32m\x1b[Krmw_client_t\x1b[m\x1b[K\n'}
+[3.856428] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ControladorMesas::\x1b[01;32m\x1b[KcallbackLimpiarCola\x1b[m\x1b[K(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.856671] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:292:37:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgoal_handle_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksa_handler\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.856774] (controlador_multiples) StderrLine: {'line': b'  292 |         if (state_ == NAVIGATING && \x1b[01;31m\x1b[Kgoal_handle_\x1b[m\x1b[K) {\n'}
+[3.856864] (controlador_multiples) StderrLine: {'line': b'      |                                     \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.856952] (controlador_multiples) StderrLine: {'line': b'      |                                     \x1b[32m\x1b[Ksa_handler\x1b[m\x1b[K\n'}
+[3.866242] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:293:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krmw_client_t\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.866496] (controlador_multiples) StderrLine: {'line': b'  293 |             \x1b[01;31m\x1b[Knav_client_\x1b[m\x1b[K->async_cancel_goal(goal_handle_);\n'}
+[3.866596] (controlador_multiples) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.866683] (controlador_multiples) StderrLine: {'line': b'      |             \x1b[32m\x1b[Krmw_client_t\x1b[m\x1b[K\n'}
+[3.878591] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ControladorMesas::\x1b[01;32m\x1b[KreiniciarNodo\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.878892] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:307:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgoal_handle_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksa_handler\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.878999] (controlador_multiples) StderrLine: {'line': b'  307 |         if (\x1b[01;31m\x1b[Kgoal_handle_\x1b[m\x1b[K) {\n'}
+[3.879095] (controlador_multiples) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.879184] (controlador_multiples) StderrLine: {'line': b'      |             \x1b[32m\x1b[Ksa_handler\x1b[m\x1b[K\n'}
+[3.888241] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:313:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krmw_client_t\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.888483] (controlador_multiples) StderrLine: {'line': b'  313 |                     \x1b[01;31m\x1b[Knav_client_\x1b[m\x1b[K->async_cancel_goal(goal_handle_);\n'}
+[3.888594] (controlador_multiples) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.888779] (controlador_multiples) StderrLine: {'line': b'      |                     \x1b[32m\x1b[Krmw_client_t\x1b[m\x1b[K\n'}
+[3.900091] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:327:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgoal_handle_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksa_handler\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.900333] (controlador_multiples) StderrLine: {'line': b'  327 |         \x1b[01;31m\x1b[Kgoal_handle_\x1b[m\x1b[K.reset();\n'}
+[3.900446] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.900554] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[32m\x1b[Ksa_handler\x1b[m\x1b[K\n'}
+[3.903662] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ControladorMesas::\x1b[01;32m\x1b[KiniciarNavegacion\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.903902] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:401:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KNavigateToPose\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.904008] (controlador_multiples) StderrLine: {'line': b'  401 |         \x1b[01;31m\x1b[KNavigateToPose\x1b[m\x1b[K::Goal goal;\n'}
+[3.904118] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.911952] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:402:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgoal\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[3.912259] (controlador_multiples) StderrLine: {'line': b'  402 |         \x1b[01;31m\x1b[Kgoal\x1b[m\x1b[K.pose = objetivo;\n'}
+[3.912377] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[3.913425] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:408:46:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KNavigateToPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.913641] (controlador_multiples) StderrLine: {'line': b'  408 |         auto options = rclcpp_action::Client<\x1b[01;31m\x1b[KNavigateToPose\x1b[m\x1b[K>::SendGoalOptions();\n'}
+[3.913750] (controlador_multiples) StderrLine: {'line': b'      |                                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.913845] (controlador_multiples) StderrLine: {'line': b'      |                                              \x1b[32m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\n'}
+[3.913938] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav2_msgs::action::NavigateToPose\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[3.914032] (controlador_multiples) StderrLine: {'line': b' 1435 | typedef struct NavigateToPose \x1b[01;36m\x1b[KNavigateToPose\x1b[m\x1b[K;\n'}
+[3.914119] (-) TimerEvent: {}
+[3.914224] (controlador_multiples) StderrLine: {'line': b'      |                               \x1b[01;36m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.914329] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:408:60:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[3.914424] (controlador_multiples) StderrLine: {'line': b'  408 |         auto options = rclcpp_action::Client<NavigateToPose\x1b[01;31m\x1b[K>\x1b[m\x1b[K::SendGoalOptions();\n'}
+[3.914653] (controlador_multiples) StderrLine: {'line': b'      |                                                            \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.914758] (controlador_multiples) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/utilities.hpp:19\x1b[m\x1b[K,\n'}
+[3.914847] (controlador_multiples) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:25\x1b[m\x1b[K,\n'}
+[3.914938] (controlador_multiples) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27\x1b[m\x1b[K,\n'}
+[3.915029] (controlador_multiples) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171\x1b[m\x1b[K,\n'}
+[3.915115] (controlador_multiples) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:7\x1b[m\x1b[K:\n'}
+[3.915203] (controlador_multiples) StderrLine: {'line': b'/usr/include/c++/13/functional: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kstruct std::_Bind_check_arity<void (ControladorMesas::*)(int), ControladorMesas*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.915310] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/functional:859:12:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstruct std::_Bind_helper<false, void (ControladorMesas::*)(int), ControladorMesas*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.915404] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/functional:881:5:\x1b[m\x1b[K   required by substitution of \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::\x1b[01;32m\x1b[Kbind\x1b[m\x1b[K(_Func&&, _BoundArgs&& ...) \x1b[35m\x1b[K[with _Func = void (ControladorMesas::*)(int); _BoundArgs = {ControladorMesas*, const std::_Placeholder<1>&, const std::_Placeholder<2>&}]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.915508] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:410:22:\x1b[m\x1b[K   required from here\n'}
+[3.915597] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/functional:847:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kstatic assertion failed: Wrong number of arguments for pointer-to-member\n'}
+[3.915686] (controlador_multiples) StderrLine: {'line': b'  846 |       static_assert(_Varargs::\x1b[01;31m\x1b[Kvalue\x1b[m\x1b[K\n'}
+[3.915775] (controlador_multiples) StderrLine: {'line': b'      |                               \x1b[01;31m\x1b[K~~~~~\x1b[m\x1b[K\n'}
+[3.915862] (controlador_multiples) StderrLine: {'line': b'  847 | \x1b[01;31m\x1b[K                    ? sizeof...(_BoundArgs) >= _Arity::value + 1\x1b[m\x1b[K\n'}
+[3.915949] (controlador_multiples) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.916042] (controlador_multiples) StderrLine: {'line': b'  848 | \x1b[01;31m\x1b[K                    : sizeof...(_BoundArgs) == _Arity::value + 1\x1b[m\x1b[K,\n'}
+[3.916132] (controlador_multiples) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.916220] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/functional:847:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K(false ? (3 >= (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)) : (3 == (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)))\x1b[m\x1b[K\xe2\x80\x99 evaluates to false\n'}
+[3.934920] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:414:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_client_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krmw_client_t\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.935208] (controlador_multiples) StderrLine: {'line': b'  414 |         \x1b[01;31m\x1b[Knav_client_\x1b[m\x1b[K->async_send_goal(goal, options);\n'}
+[3.935334] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.935441] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[32m\x1b[Krmw_client_t\x1b[m\x1b[K\n'}
+[3.946705] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ControladorMesas::\x1b[01;32m\x1b[KfeedbackCallback\x1b[m\x1b[K(int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.946979] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:421:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgoal_handle_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksa_handler\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.947095] (controlador_multiples) StderrLine: {'line': b'  421 |         \x1b[01;31m\x1b[Kgoal_handle_\x1b[m\x1b[K = handle;\n'}
+[3.947200] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.947317] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[32m\x1b[Ksa_handler\x1b[m\x1b[K\n'}
+[3.955904] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:421:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khandle\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[3.956166] (controlador_multiples) StderrLine: {'line': b'  421 |         goal_handle_ = \x1b[01;31m\x1b[Khandle\x1b[m\x1b[K;\n'}
+[3.956272] (controlador_multiples) StderrLine: {'line': b'      |                        \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[3.956368] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:418:24:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[KSharedPtr\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.956481] (controlador_multiples) StderrLine: {'line': b'  418 |         \x1b[01;35m\x1b[KGoalHandleNav::SharedPtr\x1b[m\x1b[K handle,\n'}
+[3.956580] (controlador_multiples) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~^~~~~~~~~\x1b[m\x1b[K\n'}
+[4.014244] (-) TimerEvent: {}
+[4.114570] (-) TimerEvent: {}
+[4.214906] (-) TimerEvent: {}
+[4.315261] (-) TimerEvent: {}
+[4.415573] (-) TimerEvent: {}
+[4.515878] (-) TimerEvent: {}
+[4.616237] (-) TimerEvent: {}
+[4.716595] (-) TimerEvent: {}
+[4.816922] (-) TimerEvent: {}
+[4.917273] (-) TimerEvent: {}
+[5.017590] (-) TimerEvent: {}
+[5.117931] (-) TimerEvent: {}
+[5.218262] (-) TimerEvent: {}
+[5.318616] (-) TimerEvent: {}
+[5.418961] (-) TimerEvent: {}
+[5.519381] (-) TimerEvent: {}
+[5.619720] (-) TimerEvent: {}
+[5.720145] (-) TimerEvent: {}
+[5.820473] (-) TimerEvent: {}
+[5.920808] (-) TimerEvent: {}
+[6.021167] (-) TimerEvent: {}
+[6.121489] (-) TimerEvent: {}
+[6.221906] (-) TimerEvent: {}
+[6.322294] (-) TimerEvent: {}
+[6.424900] (-) TimerEvent: {}
+[6.525890] (-) TimerEvent: {}
+[6.626195] (-) TimerEvent: {}
+[6.726540] (-) TimerEvent: {}
+[6.826896] (-) TimerEvent: {}
+[6.927217] (-) TimerEvent: {}
+[7.027562] (-) TimerEvent: {}
+[7.127879] (-) TimerEvent: {}
+[7.228231] (-) TimerEvent: {}
+[7.328531] (-) TimerEvent: {}
+[7.428837] (-) TimerEvent: {}
+[7.529166] (-) TimerEvent: {}
+[7.629518] (-) TimerEvent: {}
+[7.729829] (-) TimerEvent: {}
+[7.830176] (-) TimerEvent: {}
+[7.930506] (-) TimerEvent: {}
+[8.030852] (-) TimerEvent: {}
+[8.131156] (-) TimerEvent: {}
+[8.231514] (-) TimerEvent: {}
+[8.331859] (-) TimerEvent: {}
+[8.432200] (-) TimerEvent: {}
+[8.532526] (-) TimerEvent: {}
+[8.632839] (-) TimerEvent: {}
+[8.733200] (-) TimerEvent: {}
+[8.833524] (-) TimerEvent: {}
+[8.933882] (-) TimerEvent: {}
+[9.034214] (-) TimerEvent: {}
+[9.134556] (-) TimerEvent: {}
+[9.234862] (-) TimerEvent: {}
+[9.335183] (-) TimerEvent: {}
+[9.435552] (-) TimerEvent: {}
+[9.535908] (-) TimerEvent: {}
+[9.636276] (-) TimerEvent: {}
+[9.736667] (-) TimerEvent: {}
+[9.836995] (-) TimerEvent: {}
+[9.937409] (-) TimerEvent: {}
+[10.037773] (-) TimerEvent: {}
+[10.138077] (-) TimerEvent: {}
+[10.238383] (-) TimerEvent: {}
+[10.338698] (-) TimerEvent: {}
+[10.439069] (-) TimerEvent: {}
+[10.501149] (controlador_multiples) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1\n'}
+[10.501458] (controlador_multiples) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2\n'}
+[10.501657] (controlador_multiples) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[10.504424] (controlador_multiples) CommandEnded: {'returncode': 2}
+[10.517016] (controlador_multiples) JobEnded: {'identifier': 'controlador_multiples', 'rc': 2}
+[10.529360] (-) EventReactorShutdown: {}

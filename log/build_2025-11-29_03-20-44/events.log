@@ -1,0 +1,117 @@
+[0.000000] (-) TimerEvent: {}
+[0.000286] (controlador_multiples) JobQueued: {'identifier': 'controlador_multiples', 'dependencies': OrderedDict()}
+[0.000537] (controlador_multiples) JobStarted: {'identifier': 'controlador_multiples'}
+[0.016195] (controlador_multiples) JobProgress: {'identifier': 'controlador_multiples', 'progress': 'cmake'}
+[0.016937] (controlador_multiples) JobProgress: {'identifier': 'controlador_multiples', 'progress': 'build'}
+[0.017564] (controlador_multiples) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/daniel/controlador_multiples/build/controlador_multiples', '--', '-j4', '-l4'], 'cwd': '/home/daniel/controlador_multiples/build/controlador_multiples', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'daniel', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz:/usr/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller/lib:/home/daniel/interfaz_hardware_omni_v1/install/lib:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller/lib:/home/daniel/interfaz_hardware_omni_v1/install/lib:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller/lib:/home/daniel/omni_4wd_controller/install/omni_4wd_controller/lib:/home/daniel/interfaz_hardware_omni_v1/install/interfaz_hardware_omni_v1/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/daniel', 'CHROME_DESKTOP': 'code.desktop', 'OLDPWD': '/home/daniel', 'TERM_PROGRAM_VERSION': '1.105.1', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '2672', 'SYSTEMD_EXEC_PID': '2945', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '4669', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/daniel/controlador_multiples/install:/home/daniel/diff_drive_controller/diff_drive_controller/install:/home/daniel/omni_4wd_controller/install:/home/daniel/interfaz_hardware_omni_v1/install:/home/daniel/danbot_v1_ws/install:/home/daniel/ros2_ws/install:/home/daniel/controlador_mesas/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'daniel', 'JOURNAL_STREAM': '9:21252', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'daniel', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/home/daniel/miniconda3/bin:/home/daniel/miniconda3/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/daniel-NucBoxG5:@/tmp/.ICE-unix/2901,unix/daniel-NucBoxG5:/tmp/.ICE-unix/2901', 'INVOCATION_ID': '7f76b79d9bb34ef1ac3c98b28bab2e3c', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'PYTHONSTARTUP': '/home/daniel/.config/Code/User/workspaceStorage/bdea17b2e6a5c457d08c933a8e5ecf28/ms-python.python/pythonrc.py', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.N1DGG3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-5a8837ef8f.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/daniel/controlador_multiples/install/controlador_multiples:/home/daniel/controlador_mesas/install/controlador_mesas:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller:/home/daniel/ros2_ws/install/sllidar_ros2:/home/daniel/omni_4wd_controller/install/omni_4wd_controller:/home/daniel/interfaz_hardware_omni_v1/install/interfaz_hardware_omni_v1:/home/daniel/danbot_v1_ws/install/urdf_robot_v1:/home/daniel/danbot_v1_ws/install/test_ground:/home/daniel/danbot_v1_ws/install/rf2o_laser_odometry:/home/daniel/danbot_v1_ws/install/omni_robot_description:/home/daniel/danbot_v1_ws/install/omni_control:/home/daniel/danbot_v1_ws/install/omni_cartographer:/home/daniel/danbot_v1_ws/install/danbot_v1_ws:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:2fd6b581-1f6f-4092-885b-40c1f66b7ec1', 'QT_ACCESSIBILITY': '1', 'NO_AT_BRIDGE': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/daniel/controlador_multiples/build/controlador_multiples', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/daniel/danbot_v1_ws/build/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v2/lib/python3.12/site-packages:/home/daniel/danbot_v1_ws/build/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/controlador_motores_v1/lib/python3.12/site-packages:/home/daniel/danbot_v1_ws/build/cinematica_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/daniel/controlador_multiples/install/controlador_multiples:/home/daniel/controlador_mesas/install/controlador_mesas:/home/daniel/diff_drive_controller/diff_drive_controller/install/diff_drive_controller:/home/daniel/ros2_ws/install/sllidar_ros2:/home/daniel/omni_4wd_controller/install/omni_4wd_controller:/home/daniel/interfaz_hardware_omni_v1/install/interfaz_hardware_omni_v1:/home/daniel/danbot_v1_ws/install/urdf_robot_v1:/home/daniel/danbot_v1_ws/install/test_ground:/home/daniel/danbot_v1_ws/install/rf2o_laser_odometry:/home/daniel/danbot_v1_ws/install/omni_robot_description:/home/daniel/danbot_v1_ws/install/omni_control:/home/daniel/danbot_v1_ws/install/omni_cartographer:/home/daniel/danbot_v1_ws/install/danbot_v1_ws:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy'}), 'shell': False}
+[0.096537] (controlador_multiples) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o\x1b[0m\n'}
+[0.099784] (-) TimerEvent: {}
+[0.200076] (-) TimerEvent: {}
+[0.300421] (-) TimerEvent: {}
+[0.400720] (-) TimerEvent: {}
+[0.501068] (-) TimerEvent: {}
+[0.601389] (-) TimerEvent: {}
+[0.701700] (-) TimerEvent: {}
+[0.803249] (-) TimerEvent: {}
+[0.903572] (-) TimerEvent: {}
+[1.003892] (-) TimerEvent: {}
+[1.104198] (-) TimerEvent: {}
+[1.204543] (-) TimerEvent: {}
+[1.304857] (-) TimerEvent: {}
+[1.405160] (-) TimerEvent: {}
+[1.505503] (-) TimerEvent: {}
+[1.605806] (-) TimerEvent: {}
+[1.706159] (-) TimerEvent: {}
+[1.806506] (-) TimerEvent: {}
+[1.906816] (-) TimerEvent: {}
+[2.007148] (-) TimerEvent: {}
+[2.107455] (-) TimerEvent: {}
+[2.207766] (-) TimerEvent: {}
+[2.308128] (-) TimerEvent: {}
+[2.408435] (-) TimerEvent: {}
+[2.508752] (-) TimerEvent: {}
+[2.609077] (-) TimerEvent: {}
+[2.709408] (-) TimerEvent: {}
+[2.809772] (-) TimerEvent: {}
+[2.910289] (-) TimerEvent: {}
+[3.010623] (-) TimerEvent: {}
+[3.110917] (-) TimerEvent: {}
+[3.211247] (-) TimerEvent: {}
+[3.311558] (-) TimerEvent: {}
+[3.411915] (-) TimerEvent: {}
+[3.512228] (-) TimerEvent: {}
+[3.612529] (-) TimerEvent: {}
+[3.658296] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KControladorMesas::\x1b[01;32m\x1b[KControladorMesas\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.658564] (controlador_multiples) StderrLine: {'line': b'\x1b[01m\x1b[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:101:83:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KcallbackTimeoutControl\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[KControladorMesas\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.658677] (controlador_multiples) StderrLine: {'line': b'  101 |             "controlador_mesas/timeout_control", 10, std::bind(&ControladorMesas::\x1b[01;31m\x1b[KcallbackTimeoutControl\x1b[m\x1b[K, this, _1));\n'}
+[3.658777] (controlador_multiples) StderrLine: {'line': b'      |                                                                                   \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.712638] (-) TimerEvent: {}
+[3.813015] (-) TimerEvent: {}
+[3.913329] (-) TimerEvent: {}
+[4.013632] (-) TimerEvent: {}
+[4.113909] (-) TimerEvent: {}
+[4.214216] (-) TimerEvent: {}
+[4.314527] (-) TimerEvent: {}
+[4.414848] (-) TimerEvent: {}
+[4.515202] (-) TimerEvent: {}
+[4.615511] (-) TimerEvent: {}
+[4.715808] (-) TimerEvent: {}
+[4.816115] (-) TimerEvent: {}
+[4.916451] (-) TimerEvent: {}
+[5.016750] (-) TimerEvent: {}
+[5.117100] (-) TimerEvent: {}
+[5.217408] (-) TimerEvent: {}
+[5.317746] (-) TimerEvent: {}
+[5.418095] (-) TimerEvent: {}
+[5.518401] (-) TimerEvent: {}
+[5.618705] (-) TimerEvent: {}
+[5.719054] (-) TimerEvent: {}
+[5.819355] (-) TimerEvent: {}
+[5.919697] (-) TimerEvent: {}
+[6.020055] (-) TimerEvent: {}
+[6.120362] (-) TimerEvent: {}
+[6.220719] (-) TimerEvent: {}
+[6.321034] (-) TimerEvent: {}
+[6.421376] (-) TimerEvent: {}
+[6.521723] (-) TimerEvent: {}
+[6.622121] (-) TimerEvent: {}
+[6.722434] (-) TimerEvent: {}
+[6.822741] (-) TimerEvent: {}
+[6.923090] (-) TimerEvent: {}
+[7.023404] (-) TimerEvent: {}
+[7.124474] (-) TimerEvent: {}
+[7.224823] (-) TimerEvent: {}
+[7.325152] (-) TimerEvent: {}
+[7.425470] (-) TimerEvent: {}
+[7.525799] (-) TimerEvent: {}
+[7.626142] (-) TimerEvent: {}
+[7.726507] (-) TimerEvent: {}
+[7.826952] (-) TimerEvent: {}
+[7.927267] (-) TimerEvent: {}
+[8.027582] (-) TimerEvent: {}
+[8.127936] (-) TimerEvent: {}
+[8.228254] (-) TimerEvent: {}
+[8.328620] (-) TimerEvent: {}
+[8.428921] (-) TimerEvent: {}
+[8.529236] (-) TimerEvent: {}
+[8.629529] (-) TimerEvent: {}
+[8.729843] (-) TimerEvent: {}
+[8.830151] (-) TimerEvent: {}
+[8.930458] (-) TimerEvent: {}
+[9.030802] (-) TimerEvent: {}
+[9.131112] (-) TimerEvent: {}
+[9.231416] (-) TimerEvent: {}
+[9.331722] (-) TimerEvent: {}
+[9.432051] (-) TimerEvent: {}
+[9.532370] (-) TimerEvent: {}
+[9.632682] (-) TimerEvent: {}
+[9.733016] (-) TimerEvent: {}
+[9.833326] (-) TimerEvent: {}
+[9.933677] (-) TimerEvent: {}
+[10.034264] (-) TimerEvent: {}
+[10.072572] (controlador_multiples) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1\n'}
+[10.072874] (controlador_multiples) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2\n'}
+[10.073048] (controlador_multiples) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[10.075389] (controlador_multiples) CommandEnded: {'returncode': 2}
+[10.089133] (controlador_multiples) JobEnded: {'identifier': 'controlador_multiples', 'rc': 2}
+[10.099959] (-) EventReactorShutdown: {}

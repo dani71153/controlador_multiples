@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/daniel/controlador_multiples/build/controlador_multiples/controlador_multiple" "TARGETS" "controlador_multiple" "DESTINATION" "lib/controlador_multiples")

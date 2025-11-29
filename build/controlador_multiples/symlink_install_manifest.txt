@@ -1,0 +1,16 @@
+/home/daniel/controlador_multiples/install/controlador_multiples/lib/controlador_multiples/controlador_multiple
+/home/daniel/controlador_multiples/install/controlador_multiples/share/ament_index/resource_index/package_run_dependencies/controlador_multiples
+/home/daniel/controlador_multiples/install/controlador_multiples/share/ament_index/resource_index/parent_prefix_path/controlador_multiples
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/ament_prefix_path.sh
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/ament_prefix_path.dsv
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/path.sh
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/environment/path.dsv
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.bash
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.sh
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.zsh
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/local_setup.dsv
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.dsv
+/home/daniel/controlador_multiples/install/controlador_multiples/share/ament_index/resource_index/packages/controlador_multiples
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/cmake/controlador_multiplesConfig.cmake
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/cmake/controlador_multiplesConfig-version.cmake
+/home/daniel/controlador_multiples/install/controlador_multiples/share/controlador_multiples/package.xml

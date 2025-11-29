@@ -1,0 +1,87 @@
+[0.019s] Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[0.097s] [ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[4.097s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In lambda function:
+[4.097s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:171:15:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass ControladorMesas[m[K’ has no member named ‘[01m[Kget_node_timers[m[K’; did you mean ‘[01m[Kget_node_names[m[K’?
+[4.098s]   171 |         this->[01;31m[Kget_node_timers[m[K()[0]->cancel();
+[4.098s]       |               [01;31m[K^~~~~~~~~~~~~~~[m[K
+[4.098s]       |               [32m[Kget_node_names[m[K
+[4.098s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/client.hpp:42[m[K,
+[4.098s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[4.099s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:172[m[K,
+[4.099s]                  from [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:7[m[K:
+[4.099s] /opt/ros/jazzy/include/rclcpp/rclcpp/function_traits.hpp: In instantiation of ‘[01m[Kstruct rclcpp::function_traits::function_traits<void (ControladorMesas::ControladorMesas()::<lambda()>::*)()>[m[K’:
+[4.099s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/function_traits.hpp:51:9:[m[K   required from ‘[01m[Kstruct rclcpp::function_traits::function_traits<ControladorMesas::ControladorMesas()::<lambda()> >[m[K’
+[4.100s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/function_traits.hpp:165:8:[m[K   required from ‘[01m[Kstruct rclcpp::function_traits::same_arguments<ControladorMesas::ControladorMesas()::<lambda()>, std::function<void()> >[m[K’
+[4.100s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/timer.hpp:220:80:[m[K   required by substitution of ‘[01m[Ktemplate<class DurationRepT, class DurationT, class CallbackT> typename rclcpp::WallTimer<CallbackT>::SharedPtr rclcpp::Node::[01;32m[Kcreate_wall_timer[m[K(std::chrono::duration<_Rep1, _Period1>, CallbackT, rclcpp::CallbackGroup::SharedPtr, bool) [35m[K[with DurationRepT = long int; DurationT = std::ratio<1, 1000>; CallbackT = ControladorMesas::ControladorMesas()::<lambda()>][m[K[m[K’
+[4.100s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:151:48:[m[K   required from here
+[4.100s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/function_traits.hpp:52:40:[m[K [01;31m[Kerror: [m[K‘[01m[Koperator()[m[K’ is not a member of ‘[01m[Kvoid (ControladorMesas::ControladorMesas()::<lambda()>::*)()[m[K’
+[4.100s]    52 |     typename function_traits<decltype( [01;31m[K&FunctionT::operator()[m[K)>::arguments>::type;
+[4.100s]       |                                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.100s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/function_traits.hpp:52:40:[m[K [01;31m[Kerror: [m[K‘[01m[Koperator()[m[K’ is not a member of ‘[01m[Kvoid (ControladorMesas::ControladorMesas()::<lambda()>::*)()[m[K’
+[4.100s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/function_traits.hpp:52:40:[m[K [01;31m[Kerror: [m[K‘[01m[Koperator()[m[K’ is not a member of ‘[01m[Kvoid (ControladorMesas::ControladorMesas()::<lambda()>::*)()[m[K’
+[4.100s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In constructor ‘[01m[KControladorMesas::[01;32m[KControladorMesas[m[K()[m[K’:
+[4.100s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:151:48:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KControladorMesas::create_wall_timer(std::chrono::milliseconds, ControladorMesas::ControladorMesas()::<lambda()>)[m[K’
+[4.100s]   151 | auto timer_nav2_check = [01;31m[Kthis->create_wall_timer([m[K
+[4.101s]       |                         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[4.101s]   152 | [01;31m[K    std::chrono::milliseconds(300),[m[K
+[4.101s]       |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K             
+[4.101s]   153 | [01;31m[K    [this]() mutable {[m[K
+[4.101s]       |     [01;31m[K~~~~~~~~~~~~~~~~~~[m[K                          
+[4.101s]   154 | [01;31m[K        RCLCPP_INFO(this->get_logger(),[m[K
+[4.101s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K         
+[4.101s]   155 | [01;31m[K            "=== ANALISIS INICIAL NAV2 ===");[m[K
+[4.101s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K   
+[4.101s]   156 | 
+[4.101s]       |                                                 
+[4.102s]   157 | [01;31m[K        bool ok = nav2Disponible();[m[K
+[4.102s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K             
+[4.102s]   158 | 
+[4.102s]       |                                                 
+[4.102s]   159 | [01;31m[K        if (ok) {[m[K
+[4.102s]       |         [01;31m[K~~~~~~~~~[m[K                               
+[4.102s]   160 | [01;31m[K            RCLCPP_INFO(this->get_logger(),[m[K
+[4.102s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K     
+[4.102s]   161 | [01;31m[K                "[INIT] Nav2 está DISPONIBLE al inicio.");[m[K
+[4.102s]       |                 [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.102s]   162 | [01;31m[K        } else {[m[K
+[4.102s]       |         [01;31m[K~~~~~~~~[m[K                                
+[4.103s]   163 | [01;31m[K            RCLCPP_WARN(this->get_logger(),[m[K
+[4.103s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K     
+[4.103s]   164 | [01;31m[K                "[INIT] Nav2 NO está disponible al inicio.");[m[K
+[4.103s]       |                 [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.103s]   165 | [01;31m[K        }[m[K
+[4.103s]       |         [01;31m[K~[m[K                                       
+[4.103s]   166 | 
+[4.103s]       |                                                 
+[4.103s]   167 | [01;31m[K        RCLCPP_INFO(this->get_logger(),[m[K
+[4.103s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K         
+[4.104s]   168 | [01;31m[K            "=== FIN ANALISIS NAV2 ===");[m[K
+[4.104s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K       
+[4.104s]   169 | 
+[4.104s]       |                                                 
+[4.104s]   170 | [01;31m[K        // Cancelar este timer, solo corre una vez[m[K
+[4.104s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.104s]   171 | [01;31m[K        this->get_node_timers()[0]->cancel();[m[K
+[4.104s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K   
+[4.104s]   172 | [01;31m[K    }[m[K
+[4.104s]       |     [01;31m[K~[m[K                                           
+[4.104s]   173 | [01;31m[K)[m[K;
+[4.104s]       | [01;31m[K~[m[K                                               
+[4.105s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:1663[m[K,
+[4.105s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[4.105s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:22[m[K:
+[4.105s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:110:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class DurationRepT, class DurationT, class CallbackT> typename rclcpp::WallTimer<CallbackT>::SharedPtr rclcpp::Node::[01;32m[Kcreate_wall_timer[m[K(std::chrono::duration<_Rep1, _Period1>, CallbackT, rclcpp::CallbackGroup::SharedPtr, bool)[m[K’
+[4.105s]   110 | [01;36m[KNode[m[K::create_wall_timer(
+[4.105s]       | [01;36m[K^~~~[m[K
+[4.105s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:110:1:[m[K [01;36m[Knote: [m[K  substitution of deduced template arguments resulted in errors seen above
+[11.268s] gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+[11.268s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+[11.268s] gmake: *** [Makefile:146: all] Error 2
+[11.271s] Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4

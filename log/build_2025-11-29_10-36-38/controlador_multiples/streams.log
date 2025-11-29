@@ -1,0 +1,170 @@
+[0.019s] Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[0.097s] [ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[3.548s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:28:47:[m[K [01;31m[Kerror: [m[K‘[01m[KNavigateTo_pose[m[K’ in namespace ‘[01m[Knav2_msgs::action[m[K’ does not name a type; did you mean ‘[01m[KNavigateToPose[m[K’?
+[3.548s]    28 |     using NavigateToPose = nav2_msgs::action::[01;31m[KNavigateTo_pose[m[K;
+[3.548s]       |                                               [01;31m[K^~~~~~~~~~~~~~~[m[K
+[3.548s]       |                                               [32m[KNavigateToPose[m[K
+[3.549s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:29:59:[m[K [01;31m[Kerror: [m[K‘[01m[KNavigateToPose[m[K’ was not declared in this scope; did you mean ‘[01m[Knav2_msgs::action::NavigateToPose[m[K’?
+[3.550s]    29 |     using GoalHandleNav = rclcpp_action::ClientGoalHandle<[01;31m[KNavigateToPose[m[K>;
+[3.550s]       |                                                           [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.550s]       |                                                           [32m[Knav2_msgs::action::NavigateToPose[m[K
+[3.551s] In file included from [01m[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/navigate_to_pose.hpp:7[m[K,
+[3.551s]                  from [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:16[m[K:
+[3.551s] [01m[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:[m[K [01;36m[Knote: [m[K‘[01m[Knav2_msgs::action::NavigateToPose[m[K’ declared here
+[3.551s]  1435 | typedef struct NavigateToPose [01;36m[KNavigateToPose[m[K;
+[3.551s]       |                               [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.552s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:29:73:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.552s]    29 |     using GoalHandleNav = rclcpp_action::ClientGoalHandle<NavigateToPose[01;31m[K>[m[K;
+[3.552s]       |                                                                         [01;31m[K^[m[K
+[3.754s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:27:[m[K [01;31m[Kerror: [m[K‘[01m[KNavigateToPose[m[K’ was not declared in this scope; did you mean ‘[01m[Knav2_msgs::action::NavigateToPose[m[K’?
+[3.755s]   164 |     rclcpp_action::Client<[01;31m[KNavigateToPose[m[K>::SharedPtr nav_client_;
+[3.755s]       |                           [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.755s]       |                           [32m[Knav2_msgs::action::NavigateToPose[m[K
+[3.755s] [01m[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:[m[K [01;36m[Knote: [m[K‘[01m[Knav2_msgs::action::NavigateToPose[m[K’ declared here
+[3.755s]  1435 | typedef struct NavigateToPose [01;36m[KNavigateToPose[m[K;
+[3.755s]       |                               [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.755s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:41:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.755s]   164 |     rclcpp_action::Client<NavigateToPose[01;31m[K>[m[K::SharedPtr nav_client_;
+[3.755s]       |                                         [01;31m[K^[m[K
+[3.756s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:44:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[3.756s]   164 |     rclcpp_action::Client<NavigateToPose>::[01;31m[KSharedPtr[m[K nav_client_;
+[3.756s]       |                                            [01;31m[K^~~~~~~~~[m[K
+[3.756s]       |                                                     [32m[K;[m[K
+[3.757s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:164:54:[m[K [01;31m[Kerror: [m[K‘[01m[Knav_client_[m[K’ does not name a type; did you mean ‘[01m[Krmw_client_t[m[K’?
+[3.757s]   164 |     rclcpp_action::Client<NavigateToPose>::SharedPtr [01;31m[Knav_client_[m[K;
+[3.757s]       |                                                      [01;31m[K^~~~~~~~~~~[m[K
+[3.757s]       |                                                      [32m[Krmw_client_t[m[K
+[3.762s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:165:5:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleNav[m[K’ does not name a type
+[3.762s]   165 |     [01;31m[KGoalHandleNav[m[K::SharedPtr goal_handle_;
+[3.762s]       |     [01;31m[K^~~~~~~~~~~~~[m[K
+[3.762s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:418:9:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleNav[m[K’ has not been declared
+[3.762s]   418 |         [01;31m[KGoalHandleNav[m[K::SharedPtr handle,
+[3.762s]       |         [01;31m[K^~~~~~~~~~~~~[m[K
+[3.762s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:418:34:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[Khandle[m[K’
+[3.762s]   418 |         GoalHandleNav::SharedPtr [01;31m[Khandle[m[K,
+[3.762s]       |                                  [01;31m[K^~~~~~[m[K
+[3.764s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:31:[m[K [01;31m[Kerror: [m[K‘[01m[KGoalHandleNav[m[K’ does not name a type
+[3.765s]   425 |     void resultCallback(const [01;31m[KGoalHandleNav[m[K::WrappedResult &result)
+[3.765s]       |                               [01;31m[K^~~~~~~~~~~~~[m[K
+[3.765s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:60:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K&[m[K’ token
+[3.765s]   425 |     void resultCallback(const GoalHandleNav::WrappedResult [01;31m[K&[m[Kresult)
+[3.765s]       |                                                            [01;31m[K^[m[K
+[3.765s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:59:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K&[m[K’ token
+[3.765s]   425 |     void resultCallback[34m[K([m[Kconst GoalHandleNav::WrappedResult[01;31m[K [m[K[32m[K&[m[Kresult)
+[3.765s]       |                        [34m[K~[m[K                                  [01;31m[K^[m[K[32m[K~[m[K
+[3.765s]       |                                                           [32m[K)[m[K
+[3.765s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:60:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[3.766s]   425 |     void resultCallback(const GoalHandleNav::WrappedResult [01;31m[K&[m[Kresult)
+[3.766s]       |                                                            [01;31m[K^[m[K
+[3.766s]       |                                                             [32m[K;[m[K
+[3.767s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:425:61:[m[K [01;31m[Kerror: [m[K‘[01m[Kresult[m[K’ does not name a type
+[3.767s]   425 |     void resultCallback(const GoalHandleNav::WrappedResult &[01;31m[Kresult[m[K)
+[3.767s]       |                                                             [01;31m[K^~~~~~[m[K
+[3.805s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In constructor ‘[01m[KControladorMesas::[01;32m[KControladorMesas[m[K()[m[K’:
+[3.805s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:9:[m[K [01;31m[Kerror: [m[K‘[01m[Knav_client_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_client_t[m[K’?
+[3.805s]   103 |         [01;31m[Knav_client_[m[K = rclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose");
+[3.805s]       |         [01;31m[K^~~~~~~~~~~[m[K
+[3.805s]       |         [32m[Krmw_client_t[m[K
+[3.806s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:52:[m[K [01;31m[Kerror: [m[K‘[01m[KNavigateToPose[m[K’ was not declared in this scope; did you mean ‘[01m[Knav2_msgs::action::NavigateToPose[m[K’?
+[3.806s]   103 |         nav_client_ = rclcpp_action::create_client<[01;31m[KNavigateToPose[m[K>(this, "navigate_to_pose");
+[3.806s]       |                                                    [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.806s]       |                                                    [32m[Knav2_msgs::action::NavigateToPose[m[K
+[3.806s] [01m[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:[m[K [01;36m[Knote: [m[K‘[01m[Knav2_msgs::action::NavigateToPose[m[K’ declared here
+[3.806s]  1435 | typedef struct NavigateToPose [01;36m[KNavigateToPose[m[K;
+[3.806s]       |                               [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.807s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:67:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcreate_client<<expression error> >(ControladorMesas*, const char [17])[m[K’
+[3.807s]   103 |         nav_client_ = [01;31m[Krclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose")[m[K;
+[3.807s]       |                       [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.807s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:38[m[K,
+[3.807s]                  from [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:8[m[K:
+[3.807s] [01m[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::[01;32m[Kcreate_client[m[K(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeGraphInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const std::string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+[3.807s]    44 | [01;36m[Kcreate_client[m[K(
+[3.807s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[3.807s] [01m[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:44:1:[m[K [01;36m[Knote: [m[K  candidate expects 5 arguments, 2 provided
+[3.807s] [01m[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Client<ActionT>::SharedPtr rclcpp_action::[01;32m[Kcreate_client[m[K(NodeT, const std::string&, rclcpp::CallbackGroup::SharedPtr, const rcl_action_client_options_t&)[m[K’
+[3.808s]   105 | [01;36m[Kcreate_client[m[K(
+[3.808s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[3.808s] [01m[K/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_client.hpp:105:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.808s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:103:67:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.808s]   103 |         nav_client_ = [01;31m[Krclcpp_action::create_client<NavigateToPose>(this, "navigate_to_pose")[m[K;
+[3.808s]       |                       [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.829s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kbool ControladorMesas::[01;32m[Knav2Disponible[m[K()[m[K’:
+[3.829s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:171:14:[m[K [01;31m[Kerror: [m[K‘[01m[Knav_client_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_client_t[m[K’?
+[3.829s]   171 |         if (![01;31m[Knav_client_[m[K->wait_for_action_server(std::chrono::milliseconds(300)))
+[3.829s]       |              [01;31m[K^~~~~~~~~~~[m[K
+[3.829s]       |              [32m[Krmw_client_t[m[K
+[3.856s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kvoid ControladorMesas::[01;32m[KcallbackLimpiarCola[m[K(std_msgs::msg::String_<std::allocator<void> >::SharedPtr)[m[K’:
+[3.856s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:292:37:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_handle_[m[K’ was not declared in this scope; did you mean ‘[01m[Ksa_handler[m[K’?
+[3.856s]   292 |         if (state_ == NAVIGATING && [01;31m[Kgoal_handle_[m[K) {
+[3.856s]       |                                     [01;31m[K^~~~~~~~~~~~[m[K
+[3.856s]       |                                     [32m[Ksa_handler[m[K
+[3.866s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:293:13:[m[K [01;31m[Kerror: [m[K‘[01m[Knav_client_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_client_t[m[K’?
+[3.866s]   293 |             [01;31m[Knav_client_[m[K->async_cancel_goal(goal_handle_);
+[3.866s]       |             [01;31m[K^~~~~~~~~~~[m[K
+[3.866s]       |             [32m[Krmw_client_t[m[K
+[3.878s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kvoid ControladorMesas::[01;32m[KreiniciarNodo[m[K()[m[K’:
+[3.878s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:307:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_handle_[m[K’ was not declared in this scope; did you mean ‘[01m[Ksa_handler[m[K’?
+[3.878s]   307 |         if ([01;31m[Kgoal_handle_[m[K) {
+[3.879s]       |             [01;31m[K^~~~~~~~~~~~[m[K
+[3.879s]       |             [32m[Ksa_handler[m[K
+[3.888s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:313:21:[m[K [01;31m[Kerror: [m[K‘[01m[Knav_client_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_client_t[m[K’?
+[3.888s]   313 |                     [01;31m[Knav_client_[m[K->async_cancel_goal(goal_handle_);
+[3.888s]       |                     [01;31m[K^~~~~~~~~~~[m[K
+[3.888s]       |                     [32m[Krmw_client_t[m[K
+[3.900s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:327:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_handle_[m[K’ was not declared in this scope; did you mean ‘[01m[Ksa_handler[m[K’?
+[3.900s]   327 |         [01;31m[Kgoal_handle_[m[K.reset();
+[3.900s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.900s]       |         [32m[Ksa_handler[m[K
+[3.903s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kvoid ControladorMesas::[01;32m[KiniciarNavegacion[m[K()[m[K’:
+[3.903s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:401:9:[m[K [01;31m[Kerror: [m[K‘[01m[KNavigateToPose[m[K’ has not been declared
+[3.903s]   401 |         [01;31m[KNavigateToPose[m[K::Goal goal;
+[3.904s]       |         [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.912s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:402:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal[m[K’ was not declared in this scope
+[3.912s]   402 |         [01;31m[Kgoal[m[K.pose = objetivo;
+[3.912s]       |         [01;31m[K^~~~[m[K
+[3.913s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:408:46:[m[K [01;31m[Kerror: [m[K‘[01m[KNavigateToPose[m[K’ was not declared in this scope; did you mean ‘[01m[Knav2_msgs::action::NavigateToPose[m[K’?
+[3.913s]   408 |         auto options = rclcpp_action::Client<[01;31m[KNavigateToPose[m[K>::SendGoalOptions();
+[3.913s]       |                                              [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.913s]       |                                              [32m[Knav2_msgs::action::NavigateToPose[m[K
+[3.913s] [01m[K/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/detail/navigate_to_pose__struct.hpp:1435:31:[m[K [01;36m[Knote: [m[K‘[01m[Knav2_msgs::action::NavigateToPose[m[K’ declared here
+[3.913s]  1435 | typedef struct NavigateToPose [01;36m[KNavigateToPose[m[K;
+[3.914s]       |                               [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.914s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:408:60:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.914s]   408 |         auto options = rclcpp_action::Client<NavigateToPose[01;31m[K>[m[K::SendGoalOptions();
+[3.914s]       |                                                            [01;31m[K^[m[K
+[3.914s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/utilities.hpp:19[m[K,
+[3.914s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:25[m[K,
+[3.914s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27[m[K,
+[3.914s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171[m[K,
+[3.915s]                  from [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:7[m[K:
+[3.915s] /usr/include/c++/13/functional: In instantiation of ‘[01m[Kstruct std::_Bind_check_arity<void (ControladorMesas::*)(int), ControladorMesas*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>[m[K’:
+[3.915s] [01m[K/usr/include/c++/13/functional:859:12:[m[K   required from ‘[01m[Kstruct std::_Bind_helper<false, void (ControladorMesas::*)(int), ControladorMesas*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>[m[K’
+[3.915s] [01m[K/usr/include/c++/13/functional:881:5:[m[K   required by substitution of ‘[01m[Ktemplate<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::[01;32m[Kbind[m[K(_Func&&, _BoundArgs&& ...) [35m[K[with _Func = void (ControladorMesas::*)(int); _BoundArgs = {ControladorMesas*, const std::_Placeholder<1>&, const std::_Placeholder<2>&}][m[K[m[K’
+[3.915s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:410:22:[m[K   required from here
+[3.915s] [01m[K/usr/include/c++/13/functional:847:21:[m[K [01;31m[Kerror: [m[Kstatic assertion failed: Wrong number of arguments for pointer-to-member
+[3.915s]   846 |       static_assert(_Varargs::[01;31m[Kvalue[m[K
+[3.915s]       |                               [01;31m[K~~~~~[m[K
+[3.915s]   847 | [01;31m[K                    ? sizeof...(_BoundArgs) >= _Arity::value + 1[m[K
+[3.915s]       |                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.915s]   848 | [01;31m[K                    : sizeof...(_BoundArgs) == _Arity::value + 1[m[K,
+[3.916s]       |                     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.916s] [01m[K/usr/include/c++/13/functional:847:21:[m[K [01;36m[Knote: [m[K‘[01m[K(false ? (3 >= (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)) : (3 == (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)))[m[K’ evaluates to false
+[3.935s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:414:9:[m[K [01;31m[Kerror: [m[K‘[01m[Knav_client_[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw_client_t[m[K’?
+[3.935s]   414 |         [01;31m[Knav_client_[m[K->async_send_goal(goal, options);
+[3.935s]       |         [01;31m[K^~~~~~~~~~~[m[K
+[3.935s]       |         [32m[Krmw_client_t[m[K
+[3.946s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kvoid ControladorMesas::[01;32m[KfeedbackCallback[m[K(int)[m[K’:
+[3.946s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:421:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_handle_[m[K’ was not declared in this scope; did you mean ‘[01m[Ksa_handler[m[K’?
+[3.947s]   421 |         [01;31m[Kgoal_handle_[m[K = handle;
+[3.947s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.947s]       |         [32m[Ksa_handler[m[K
+[3.955s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:421:24:[m[K [01;31m[Kerror: [m[K‘[01m[Khandle[m[K’ was not declared in this scope
+[3.956s]   421 |         goal_handle_ = [01;31m[Khandle[m[K;
+[3.956s]       |                        [01;31m[K^~~~~~[m[K
+[3.956s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:418:24:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KSharedPtr[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[3.956s]   418 |         [01;35m[KGoalHandleNav::SharedPtr[m[K handle,
+[3.956s]       |         [01;35m[K~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[10.501s] gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+[10.501s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+[10.501s] gmake: *** [Makefile:146: all] Error 2
+[10.504s] Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4

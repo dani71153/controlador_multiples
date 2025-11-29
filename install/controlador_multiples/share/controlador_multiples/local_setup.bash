@@ -1,0 +1,1 @@
+/home/daniel/controlador_multiples/build/controlador_multiples/ament_cmake_environment_hooks/local_setup.bash

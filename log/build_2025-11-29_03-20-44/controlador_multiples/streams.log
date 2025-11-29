@@ -1,0 +1,10 @@
+[0.019s] Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[0.096s] [ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[3.658s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In constructor ‘[01m[KControladorMesas::[01;32m[KControladorMesas[m[K()[m[K’:
+[3.658s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:101:83:[m[K [01;31m[Kerror: [m[K‘[01m[KcallbackTimeoutControl[m[K’ is not a member of ‘[01m[KControladorMesas[m[K’
+[3.658s]   101 |             "controlador_mesas/timeout_control", 10, std::bind(&ControladorMesas::[01;31m[KcallbackTimeoutControl[m[K, this, _1));
+[3.658s]       |                                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[10.072s] gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+[10.072s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+[10.072s] gmake: *** [Makefile:146: all] Error 2
+[10.075s] Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4

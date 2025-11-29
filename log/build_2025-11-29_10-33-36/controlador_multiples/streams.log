@@ -1,0 +1,22 @@
+[0.020s] Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[0.104s] [ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[3.932s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kvoid ControladorMesas::[01;32m[KiniciarNavegacion[m[K()[m[K’:
+[3.932s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:381:14:[m[K [01;31m[Kerror: [m[K‘[01m[Knav2Disponible[m[K’ was not declared in this scope
+[3.932s]   381 |         if (![01;31m[Knav2Disponible[m[K()) {
+[3.932s]       |              [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.962s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kvoid ControladorMesas::[01;32m[KavanzarModoAutomatico[m[K()[m[K’:
+[3.962s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:585:28:[m[K [01;35m[Kwarning: [m[Kempty parentheses were disambiguated as a function declaration [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wvexing-parse-Wvexing-parse]8;;[m[K]
+[3.963s]   585 |         bool nav2Disponible[01;35m[K()[m[K
+[3.963s]       |                            [01;35m[K^~[m[K
+[3.963s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:585:28:[m[K [01;36m[Knote: [m[Kremove parentheses to default-initialize a variable
+[3.963s]   585 |         bool nav2Disponible[01;36m[K()[m[K
+[3.963s]       |                            [01;36m[K^~[m[K
+[3.963s]       |                            [31m[K--[m[K
+[3.963s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:585:28:[m[K [01;36m[Knote: [m[Kor replace parentheses with braces to value-initialize a variable
+[3.963s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:586:1:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[3.963s]   586 | [01;31m[K{[m[K
+[3.963s]       | [01;31m[K^[m[K
+[11.314s] gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+[11.314s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+[11.314s] gmake: *** [Makefile:146: all] Error 2
+[11.316s] Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
