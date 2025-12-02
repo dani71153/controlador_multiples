@@ -75,7 +75,7 @@ public:
         pub_odom_timeout_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/odom_timeout", 20);
 
         sub_odom_ = this->create_subscription<nav_msgs::msg::Odometry>(
-            "/odom", 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
+            "/odometry/filtered", 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
 
         sub_pedidos_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
             "entradas_pedidos", 10, std::bind(&ControladorMesas::callbackPedido, this, _1));
