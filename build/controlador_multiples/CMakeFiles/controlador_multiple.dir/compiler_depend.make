@@ -70,6 +70,10 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__struct.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__traits.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__type_support.hpp \
+  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__builder.hpp \
+  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__struct.hpp \
+  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__traits.hpp \
+  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__type_support.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__builder.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp \
@@ -129,6 +133,7 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/polygon_stamped.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose.hpp \
+  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose2_d.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose_stamped.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance.hpp \
   /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance_stamped.hpp \
@@ -572,6 +577,7 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
   /opt/ros/jazzy/include/tf2/tf2/LinearMath/Matrix3x3.hpp \
   /opt/ros/jazzy/include/tf2/tf2/LinearMath/MinMax.hpp \
   /opt/ros/jazzy/include/tf2/tf2/LinearMath/QuadWord.hpp \
+  /opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.h \
   /opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.hpp \
   /opt/ros/jazzy/include/tf2/tf2/LinearMath/Scalar.hpp \
   /opt/ros/jazzy/include/tf2/tf2/LinearMath/Transform.hpp \
@@ -1352,8 +1358,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /usr/include/c++/13/bits/locale_facets_nonio.h:
 
-/usr/include/c++/13/bits/locale_facets.tcc:
-
 /usr/include/c++/13/bits/locale_facets.h:
 
 /usr/include/c++/13/bits/locale_classes.h:
@@ -1466,10 +1470,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/tf2_ros/tf2_ros/transform_listener.h:
 
-/usr/include/c++/13/tr1/riemann_zeta.tcc:
-
-/opt/ros/jazzy/include/tf2_ros/tf2_ros/qos.hpp:
-
 /opt/ros/jazzy/include/tf2_ros/tf2_ros/create_timer_interface.hpp:
 
 /opt/ros/jazzy/include/tf2_ros/tf2_ros/buffer.h:
@@ -1509,6 +1509,12 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 /opt/ros/jazzy/include/tf2/tf2/LinearMath/Scalar.hpp:
 
 /opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.hpp:
+
+/usr/include/c++/13/tr1/riemann_zeta.tcc:
+
+/opt/ros/jazzy/include/tf2_ros/tf2_ros/qos.hpp:
+
+/opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
@@ -1562,11 +1568,19 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__builder.hpp:
 
-/usr/include/c++/13/iosfwd:
+/opt/ros/jazzy/include/service_msgs/service_msgs/msg/detail/service_event_info__struct.hpp:
 
-/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp:
+/usr/include/c++/13/typeinfo:
 
-/opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp:
+/opt/ros/jazzy/include/service_msgs/service_msgs/msg/detail/service_event_info__struct.h:
+
+/opt/ros/jazzy/include/rosidl_typesupport_introspection_cpp/rosidl_typesupport_introspection_cpp/visibility_control.h:
+
+/opt/ros/jazzy/include/rosidl_typesupport_introspection_cpp/rosidl_typesupport_introspection_cpp/message_introspection.hpp:
+
+/opt/ros/jazzy/include/tf2/tf2/LinearMath/Matrix3x3.hpp:
+
+/opt/ros/jazzy/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h:
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/detail/cpp_callback_trampoline.hpp:
 
@@ -1575,6 +1589,10 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 /usr/include/c++/13/list:
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/detail/add_guard_condition_to_rcl_wait_set.hpp:
+
+/usr/include/c++/13/bits/locale_facets.tcc:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__type_support.hpp:
 
 /opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__type_support.hpp:
 
@@ -1654,10 +1672,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__type_support.hpp:
 
-/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__builder.hpp:
-
-/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__builder.hpp:
-
 /opt/ros/jazzy/include/rclcpp/rclcpp/node_interfaces/get_node_topics_interface.hpp:
 
 /usr/include/stdint.h:
@@ -1696,11 +1710,13 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/wrench_stamped.hpp:
 
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__struct.hpp:
+
 /opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__traits.hpp:
 
-/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__traits.hpp:
-
 /opt/ros/jazzy/include/rcl/rcl/node_options.h:
+
+/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__traits.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
@@ -1782,6 +1798,30 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose_stamped.hpp:
 
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose2_d.hpp:
+
+/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__traits.hpp:
+
+/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_description/type_description__struct.h:
+
+/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__builder.hpp:
+
+/opt/ros/jazzy/include/rcl/rcl/time.h:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/vector3_stamped__traits.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/wrench.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/vector3_stamped.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point32.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp:
+
 /opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp:
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point32__traits.hpp:
@@ -1789,12 +1829,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 /opt/ros/jazzy/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_type_support_decl.hpp:
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/vector3.hpp:
-
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/vector3_stamped__traits.hpp:
-
-/opt/ros/jazzy/include/rcl/rcl/time.h:
-
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp:
 
 /opt/ros/jazzy/include/rcl/rcl/service_introspection.h:
 
@@ -1820,15 +1854,11 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/nav_msgs/nav_msgs/msg/detail/odometry__struct.hpp:
 
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp:
-
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__builder.hpp:
 
 /usr/include/c++/13/tr1/legendre_function.tcc:
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_description/field__struct.h:
-
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point.hpp:
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__traits.hpp:
 
@@ -1858,10 +1888,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/message_type_support_struct.h:
 
-/opt/ros/jazzy/include/tf2/tf2/LinearMath/Matrix3x3.hpp:
-
-/opt/ros/jazzy/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h:
-
 /opt/ros/jazzy/include/tf2/tf2/exceptions.h:
 
 /opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__builder.hpp:
@@ -1881,8 +1907,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 /opt/ros/jazzy/include/rcutils/rcutils/shared_library.h:
 
 /opt/ros/jazzy/include/action_msgs/action_msgs/srv/detail/cancel_goal__struct.hpp:
-
-/opt/ros/jazzy/include/rosidl_typesupport_introspection_cpp/rosidl_typesupport_introspection_cpp/visibility_control.h:
 
 /opt/ros/jazzy/include/action_msgs/action_msgs/srv/detail/cancel_goal__struct.h:
 
@@ -1986,12 +2010,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/rosidl_runtime_cpp/rosidl_runtime_cpp/traits.hpp:
 
-/opt/ros/jazzy/include/rcl/rcl/guard_condition.h:
-
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__struct.hpp:
-
-/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/navigate_to_pose.hpp:
-
 /opt/ros/jazzy/include/action_msgs/action_msgs/msg/detail/goal_status__builder.hpp:
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/node_interfaces/node_timers_interface.hpp:
@@ -2034,15 +2052,13 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:
 
+/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameters__builder.hpp:
+
+/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__builder.hpp:
+
 /opt/ros/jazzy/include/rcl/rcl/visibility_control.h:
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/loaned_message.hpp:
-
-/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__type_support.hpp:
-
-/usr/include/c++/13/bits/stl_multiset.h:
-
-/opt/ros/jazzy/include/rmw/rmw/init_options.h:
 
 /usr/include/c++/13/sstream:
 
@@ -2160,6 +2176,10 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/rcl_action/rcl_action/goal_state_machine.h:
 
+/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/client_goal_handle.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__traits.hpp:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
 
 /usr/include/c++/13/ext/aligned_buffer.h:
@@ -2197,6 +2217,16 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__type_support.hpp:
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__builder.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__builder.hpp:
+
+/opt/ros/jazzy/include/rcl/rcl/guard_condition.h:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__struct.hpp:
+
+/opt/ros/jazzy/include/nav2_msgs/nav2_msgs/action/navigate_to_pose.hpp:
+
+/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__traits.hpp:
 
 /opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__builder.hpp:
 
@@ -2290,6 +2320,12 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/rcl_action/rcl_action/action_client.h:
 
+/opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp:
+
+/usr/include/c++/13/iosfwd:
+
+/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__struct.hpp:
+
 /opt/ros/jazzy/include/rclcpp/rclcpp/subscription_base.hpp:
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__builder.hpp:
@@ -2370,17 +2406,11 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__type_support.hpp:
 
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/wrench.hpp:
+/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__type_support.hpp:
 
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/vector3_stamped.hpp:
+/usr/include/c++/13/bits/stl_multiset.h:
 
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point32.hpp:
-
-/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__traits.hpp:
-
-/opt/ros/jazzy/include/rosidl_runtime_c/rosidl_runtime_c/type_description/type_description__struct.h:
-
-/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__builder.hpp:
+/opt/ros/jazzy/include/rmw/rmw/init_options.h:
 
 /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp:
 
@@ -2646,8 +2676,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/node_interfaces/node_logging_interface_traits.hpp:
 
-/opt/ros/jazzy/include/service_msgs/service_msgs/msg/detail/service_event_info__struct.hpp:
-
 /opt/ros/jazzy/include/rclcpp/rclcpp/node_interfaces/node_topics_interface.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
@@ -2783,10 +2811,6 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 /usr/include/c++/13/ext/atomicity.h:
 
 /opt/ros/jazzy/include/rmw/rmw/time.h:
-
-/opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__traits.hpp:
-
-/opt/ros/jazzy/include/rclcpp_action/rclcpp_action/client_goal_handle.hpp:
 
 /opt/ros/jazzy/include/rclcpp_action/rclcpp_action/create_server.hpp:
 
@@ -2969,9 +2993,3 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: /home/daniel
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /opt/ros/jazzy/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp:
-
-/opt/ros/jazzy/include/rosidl_typesupport_introspection_cpp/rosidl_typesupport_introspection_cpp/message_introspection.hpp:
-
-/usr/include/c++/13/typeinfo:
-
-/opt/ros/jazzy/include/service_msgs/service_msgs/msg/detail/service_event_info__struct.h:

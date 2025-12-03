@@ -1,0 +1,19 @@
+[0.019s] Invoking command in '/home/daniel/controlador_multiples/build/controlador_multiples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4
+[0.106s] [ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[0.514s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:81:13:[m[K [01;35m[Kwarning: [m[Kmissing terminating " character
+[0.514s]    81 |             [01;35m[K"[m[K/odom, 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
+[0.514s]       |             [01;35m[K^[m[K
+[0.514s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:81:13:[m[K [01;31m[Kerror: [m[Kmissing terminating " character
+[0.515s]    81 |             [01;31m[K"/odom, 50, std::bind(&ControladorMesas::callbackOdom, this, _1));[m[K
+[0.515s]       |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[4.118s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In constructor ‘[01m[KControladorMesas::[01;32m[KControladorMesas[m[K()[m[K’:
+[4.119s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:84:92:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K;[m[K’ token
+[4.119s]    84 |             "entradas_pedidos", 10, std::bind(&ControladorMesas::callbackPedido, this, _1))[01;31m[K;[m[K
+[4.119s]       |                                                                                            [01;31m[K^[m[K
+[4.119s] [01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:80:71:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[4.119s]    80 |         sub_odom_ = this->create_subscription<nav_msgs::msg::Odometry>[01;36m[K([m[K
+[4.119s]       |                                                                       [01;36m[K^[m[K
+[13.330s] gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+[13.331s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+[13.331s] gmake: *** [Makefile:146: all] Error 2
+[13.333s] Invoked command in '/home/daniel/controlador_multiples/build/controlador_multiples' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/daniel/danbot_v1_ws/install/controlador_motores_v2:/home/daniel/danbot_v1_ws/install/controlador_motores_v1:/home/daniel/danbot_v1_ws/install/cinematica_v1:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/daniel/controlador_multiples/build/controlador_multiples -- -j4 -l4

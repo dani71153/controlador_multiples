@@ -1,0 +1,17 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:81:13:[m[K [01;35m[Kwarning: [m[Kmissing terminating " character
+   81 |             [01;35m[K"[m[K/odom, 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
+      |             [01;35m[K^[m[K
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:81:13:[m[K [01;31m[Kerror: [m[Kmissing terminating " character
+   81 |             [01;31m[K"/odom, 50, std::bind(&ControladorMesas::callbackOdom, this, _1));[m[K
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In constructor ‘[01m[KControladorMesas::[01;32m[KControladorMesas[m[K()[m[K’:
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:84:92:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K;[m[K’ token
+   84 |             "entradas_pedidos", 10, std::bind(&ControladorMesas::callbackPedido, this, _1))[01;31m[K;[m[K
+      |                                                                                            [01;31m[K^[m[K
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:80:71:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+   80 |         sub_odom_ = this->create_subscription<nav_msgs::msg::Odometry>[01;36m[K([m[K
+      |                                                                       [01;36m[K^[m[K
+gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

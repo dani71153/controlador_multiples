@@ -775,6 +775,11 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: \
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__traits.hpp \
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__type_support.hpp \
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose2_d.hpp \
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__struct.hpp \
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__builder.hpp \
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__traits.hpp \
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__type_support.hpp \
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/string.hpp \
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
  /opt/ros/jazzy/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
@@ -920,4 +925,5 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o: \
  /usr/include/kdl/utilities/utility.h \
  /usr/include/kdl/utilities/kdl-config.h /usr/include/kdl/frames.inl \
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/Transform.hpp \
- /opt/ros/jazzy/include/tf2/tf2/exceptions.h
+ /opt/ros/jazzy/include/tf2/tf2/exceptions.h \
+ /opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.h

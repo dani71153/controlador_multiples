@@ -71,6 +71,10 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__struct.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__traits.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__type_support.hpp
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__builder.hpp
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__struct.hpp
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__traits.hpp
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose2_d__type_support.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__builder.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp
@@ -130,6 +134,7 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/polygon_stamped.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose.hpp
+ /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose2_d.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose_stamped.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance.hpp
  /opt/ros/jazzy/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance_stamped.hpp
@@ -573,6 +578,7 @@ CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/Matrix3x3.hpp
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/MinMax.hpp
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/QuadWord.hpp
+ /opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.h
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/Quaternion.hpp
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/Scalar.hpp
  /opt/ros/jazzy/include/tf2/tf2/LinearMath/Transform.hpp

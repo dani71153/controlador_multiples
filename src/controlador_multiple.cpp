@@ -9,6 +9,7 @@
 
 #include "nav_msgs/msg/odometry.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
+#include "geometry_msgs/msg/pose2_d.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "std_msgs/msg/float32.hpp"
 #include "std_msgs/msg/bool.hpp"
@@ -19,6 +20,7 @@
 #include "tf2_ros/transform_listener.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 #include "tf2/exceptions.h"
+#include "tf2/LinearMath/Quaternion.h"
 
 using std::placeholders::_1;
 using std::placeholders::_2;
@@ -35,6 +37,7 @@ public:
     const double TIMEOUT_VALIDACION = 8.0;
     const double REINICIO_MOVIMIENTO = 0.15;
     const double REINICIO_YAW = 0.25;
+    static constexpr const char* FRAME_MAP = "map";
 
     enum State { IDLE, NAVIGATING, WAITING_ODOM_CONFIRM, ERROR };
     enum ModoOperacion { MODO_PEDIDO, MODO_ENTREGA, MODO_PAGO, MODO_AUTO };
@@ -71,11 +74,14 @@ public:
         pub_modo_actual_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/modo_actual", 20);
         pub_en_ejecucion_ = this->create_publisher<std_msgs::msg::Bool>("controlador_mesas/en_ejecucion", 10);
         pub_descartados_lista_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/objetivos_descartados_lista", 20);
+        auto qos_latched = rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable();
+        pub_verificacion_origen_ = this->create_publisher<std_msgs::msg::Bool>("controlador_mesas/verificacion_del_origen", qos_latched);
+        pub_origen_guardado_ = this->create_publisher<geometry_msgs::msg::Pose2D>("controlador_mesas/origen_guardado", qos_latched);
 
         pub_odom_timeout_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/odom_timeout", 20);
 
         sub_odom_ = this->create_subscription<nav_msgs::msg::Odometry>(
-            "/odometry/filtered", 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
+            "/odom", 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
 
         sub_pedidos_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
             "entradas_pedidos", 10, std::bind(&ControladorMesas::callbackPedido, this, _1));
@@ -105,6 +111,10 @@ public:
         sub_autorizar_entrega_ = this->create_subscription<std_msgs::msg::Bool>(
             "controlador_mesas/autorizar_entrega", 10,
             std::bind(&ControladorMesas::callbackAutorizarEntrega, this, _1));
+
+        sub_establecer_origen_ = this->create_subscription<geometry_msgs::msg::Pose2D>(
+            "controlador_mesas/establecer_origen", 10,
+            std::bind(&ControladorMesas::callbackEstablecerOrigen, this, _1));
 
         auto nav2_qos = rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable();
         sub_nav2_estado_ = this->create_subscription<std_msgs::msg::Bool>(
@@ -154,6 +164,9 @@ public:
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/modo_actual");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/objetivos_descartados_lista");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/en_ejecucion");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/odom_timeout");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/verificacion_del_origen");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/origen_guardado");
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Subscribers creados:");
         RCLCPP_INFO(this->get_logger(), "   - /odom");
@@ -166,6 +179,7 @@ public:
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/cambiar_modo");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/autorizar_entrega");
         RCLCPP_INFO(this->get_logger(), "   - /nav2_lifecycle_manager_navigation/is_active");
+        RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/establecer_origen");
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Sistema de TF listo.");
         RCLCPP_INFO(this->get_logger(), "[INIT] Action Client navigate_to_pose inicializado.");
@@ -194,6 +208,12 @@ private:
 
     bool odom_recibida_;
     rclcpp::Time odom_last_time_;
+    bool robot_en_origen_ = false;
+
+    geometry_msgs::msg::Pose2D origen_guardado_;
+    bool origen_establecido_ = false;
+    bool verificacion_origen_publicada_ = false;
+    bool ultimo_verificacion_origen_ = false;
 
     std::queue<geometry_msgs::msg::PoseStamped> cola_pedidos_;
     std::queue<geometry_msgs::msg::PoseStamped> cola_entregas_;
@@ -236,6 +256,8 @@ private:
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr pub_en_ejecucion_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_descartados_lista_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_odom_timeout_;
+    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr pub_verificacion_origen_;
+    rclcpp::Publisher<geometry_msgs::msg::Pose2D>::SharedPtr pub_origen_guardado_;
 
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr sub_odom_;
     rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr sub_pedidos_;
@@ -247,6 +269,7 @@ private:
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_modo_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_nav2_estado_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_autorizar_entrega_;
+    rclcpp::Subscription<geometry_msgs::msg::Pose2D>::SharedPtr sub_establecer_origen_;
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client_;
     GoalHandleNav::SharedPtr goal_handle_;
@@ -282,6 +305,35 @@ private:
         return std::atan2(siny, cosy);
     }
 
+    double normalizarAngulo(double ang) const {
+        return std::atan2(std::sin(ang), std::cos(ang));
+    }
+
+    geometry_msgs::msg::Quaternion quatFromYaw(double yaw) const {
+        tf2::Quaternion q;
+        q.setRPY(0.0, 0.0, yaw);
+        return tf2::toMsg(q);
+    }
+
+    bool poseEnMapa(const geometry_msgs::msg::PoseStamped &pose_in,
+                    geometry_msgs::msg::PoseStamped &pose_out)
+    {
+        try {
+            tf_buffer_->transform(pose_in, pose_out, FRAME_MAP);
+            return true;
+        } catch (const tf2::TransformException &ex) {
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 3000,
+                                 "[ORIGEN] Transform odom->map no disponible: %s", ex.what());
+        } catch (const std::exception &ex) {
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 3000,
+                                 "[ORIGEN] Error transformando odom->map: %s", ex.what());
+        } catch (...) {
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 3000,
+                                 "[ORIGEN] Error desconocido en transform odom->map");
+        }
+        return false;
+    }
+
     void publicarEstado(const std::string &s) {
         ultimo_estado_ = s;
         std_msgs::msg::String m; m.data = s;
@@ -314,6 +366,12 @@ private:
         std_msgs::msg::Bool ejec;
         ejec.data = true;
         pub_en_ejecucion_->publish(ejec);
+        if (origen_establecido_) {
+            pub_origen_guardado_->publish(origen_guardado_);
+        }
+        std_msgs::msg::Bool verif;
+        verif.data = robot_en_origen_;
+        pub_verificacion_origen_->publish(verif);
     }
 
     void tickOdomWatchdog() {
@@ -473,6 +531,13 @@ private:
         if (msg->data == "reiniciar") reiniciarNodo();
     }
 
+    void callbackEstablecerOrigen(const geometry_msgs::msg::Pose2D::SharedPtr msg) {
+        establecerOrigen(msg->x, msg->y, msg->theta);
+        RCLCPP_INFO(this->get_logger(),
+                    "[ORIGEN] Origen actualizado manualmente a (%.3f, %.3f, %.3f rad)",
+                    msg->x, msg->y, msg->theta);
+    }
+
     void reiniciarNodo() {
         if (reinicio_en_progreso_) {
             RCLCPP_WARN(this->get_logger(), "[REINICIO] Ya en progreso, se ignora solicitud.");
@@ -509,6 +574,7 @@ private:
         timeout_habilitado_ = false;
         odom_stable_ = false;
         objetivos_descartados_ = 0;
+        origen_establecido_ = false;
 
         goal_handle_.reset();
         state_ = IDLE;
@@ -653,7 +719,7 @@ private:
                 result.code == rclcpp_action::ResultCode::SUCCEEDED)
             {
                 publicarEstado("Timeout excedido.");
-                state_ = ERROR;
+                manejarFalloNavegacion("nav_timeout");
                 return;
             }
         }
@@ -667,17 +733,17 @@ private:
 
             case rclcpp_action::ResultCode::ABORTED:
                 publicarEstado("Nav2 falló.");
-                state_ = ERROR;
+                manejarFalloNavegacion("nav_aborted");
                 break;
 
             case rclcpp_action::ResultCode::CANCELED:
                 publicarEstado("Nav2 cancelado.");
-                state_ = ERROR;
+                manejarFalloNavegacion("nav_canceled");
                 break;
 
             default:
                 publicarEstado("Error desconocido.");
-                state_ = ERROR;
+                manejarFalloNavegacion("nav_error");
                 break;
         }
     }
@@ -693,7 +759,27 @@ private:
         odom_raw.header = msg->header;
         odom_raw.pose = msg->pose.pose;
 
+        geometry_msgs::msg::PoseStamped odom_mapa_tf;
+        bool tiene_pose_mapa = poseEnMapa(odom_raw, odom_mapa_tf);
+
+        if (!origen_establecido_) {
+            if (!tiene_pose_mapa) {
+                RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
+                                     "[ORIGEN] Aún sin transform odom->map, esperando para fijar origen.");
+            } else {
+                double yaw_ini = yawFromQuat(odom_mapa_tf.pose.orientation);
+                establecerOrigen(odom_mapa_tf.pose.position.x,
+                                 odom_mapa_tf.pose.position.y,
+                                 yaw_ini);
+                RCLCPP_INFO(this->get_logger(),
+                            "[ORIGEN] Origen inicial tomado en frame map (%.3f, %.3f, %.3f rad)",
+                            origen_guardado_.x, origen_guardado_.y, origen_guardado_.theta);
+                pub_origen_guardado_->publish(origen_guardado_);
+            }
+        }
+
         pub_odom_recibida_->publish(odom_raw);
+        publicarEstadoOrigen(odom_mapa_tf, tiene_pose_mapa);
 
         actualizarColaActiva();
         if (!cola_activa_ || cola_activa_->empty()) return;
@@ -740,6 +826,7 @@ private:
             cola_activa_->pop();
             if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
             state_ = IDLE;
+            encolarOrigenSiColaVacia();
             postTarea();
             return;
         }
@@ -769,6 +856,7 @@ private:
             cola_activa_->pop();
             if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
             state_ = IDLE;
+            encolarOrigenSiColaVacia();
             postTarea();
         }
     }
@@ -813,6 +901,71 @@ private:
         }
         ss << "]";
         return ss.str();
+    }
+
+    void establecerOrigen(double x, double y, double theta) {
+        origen_guardado_.x = x;
+        origen_guardado_.y = y;
+        origen_guardado_.theta = normalizarAngulo(theta);
+        origen_establecido_ = true;
+        pub_origen_guardado_->publish(origen_guardado_);
+        verificacion_origen_publicada_ = false; // forzar publicación del nuevo estado
+    }
+
+    void publicarEstadoOrigen(const geometry_msgs::msg::PoseStamped &odom_mapa, bool tiene_pose_mapa) {
+        bool en_origen = false;
+        if (origen_establecido_ && tiene_pose_mapa) {
+            double dx0 = odom_mapa.pose.position.x - origen_guardado_.x;
+            double dy0 = odom_mapa.pose.position.y - origen_guardado_.y;
+            double dist0 = std::sqrt(dx0*dx0 + dy0*dy0);
+            double yaw_actual = yawFromQuat(odom_mapa.pose.orientation);
+            double dtheta = normalizarAngulo(yaw_actual - origen_guardado_.theta);
+            bool pos_ok = dist0 < TOLERANCIA_POS;
+            bool ang_ok = std::fabs(dtheta) < TOLERANCIA_ANG;
+            en_origen = pos_ok && ang_ok;
+        }
+        if (origen_establecido_) {
+            pub_origen_guardado_->publish(origen_guardado_);
+        }
+        if (!verificacion_origen_publicada_ || en_origen != ultimo_verificacion_origen_) {
+            std_msgs::msg::Bool verif;
+            verif.data = en_origen;
+            pub_verificacion_origen_->publish(verif);
+            verificacion_origen_publicada_ = true;
+            ultimo_verificacion_origen_ = en_origen;
+        }
+        robot_en_origen_ = en_origen;
+    }
+
+    void encolarOrigenSiColaVacia() {
+        actualizarColaActiva();
+        if (!origen_establecido_ || !cola_activa_) return;
+        if (!cola_activa_->empty()) return;
+        if (robot_en_origen_) return;
+
+        geometry_msgs::msg::PoseStamped origen_ps;
+        origen_ps.header.frame_id = FRAME_MAP;
+        origen_ps.header.stamp = this->now();
+        origen_ps.pose.position.x = origen_guardado_.x;
+        origen_ps.pose.position.y = origen_guardado_.y;
+        origen_ps.pose.position.z = 0.0;
+        origen_ps.pose.orientation = quatFromYaw(origen_guardado_.theta);
+
+        cola_activa_->push(origen_ps);
+        RCLCPP_INFO(this->get_logger(), "[ORIGEN] Cola vacía: se encola regreso automático al origen.");
+    }
+
+    void manejarFalloNavegacion(const std::string &motivo) {
+        actualizarColaActiva();
+        if (cola_activa_ && !cola_activa_->empty()) {
+            registrarDescartado(cola_activa_->front(), motivo);
+            cola_activa_->pop();
+            objetivos_descartados_++;
+            if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
+        }
+        state_ = IDLE;
+        encolarOrigenSiColaVacia();
+        postTarea();
     }
 
     void avanzarModoAutomatico() {
