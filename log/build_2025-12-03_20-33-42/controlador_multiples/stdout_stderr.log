@@ -1,0 +1,11 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o[0m
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:[m[K In member function ‘[01m[Kbool ControladorMesas::[01;32m[KobjetivoEsOrigen[m[K(const geometry_msgs::msg::PoseStamped&) const[m[K’:
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:1011:37:[m[K [01;31m[Kerror: [m[Kpassing ‘[01m[Kconst ControladorMesas[m[K’ as ‘[01m[Kthis[m[K’ argument discards qualifiers [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+ 1011 |         double yaw_obj = [01;31m[KyawFromQuat(obj.pose.orientation)[m[K;
+      |                          [01;31m[K~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/daniel/controlador_multiples/src/controlador_multiple.cpp:308:12:[m[K [01;36m[Knote: [m[K  in call to ‘[01m[Kdouble ControladorMesas::[01;32m[KyawFromQuat[m[K(const geometry_msgs::msg::Quaternion&)[m[K’
+  308 |     double [01;36m[KyawFromQuat[m[K(const geometry_msgs::msg::Quaternion &q) {
+      |            [01;36m[K^~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/controlador_multiple.dir/build.make:76: CMakeFiles/controlador_multiple.dir/src/controlador_multiple.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controlador_multiple.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

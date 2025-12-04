@@ -21,6 +21,7 @@
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 #include "tf2/exceptions.h"
 #include "tf2/LinearMath/Quaternion.h"
+#include "tf2/time.h"
 
 using std::placeholders::_1;
 using std::placeholders::_2;
@@ -54,6 +55,7 @@ public:
         odom_last_time_ = this->now();
 
         tf_buffer_   = std::make_shared<tf2_ros::Buffer>(this->get_clock());
+        tf_buffer_->setUsingDedicatedThread(true);
         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
         pub_estado_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/estado", 20);
@@ -81,7 +83,7 @@ public:
         pub_odom_timeout_ = this->create_publisher<std_msgs::msg::String>("controlador_mesas/odom_timeout", 20);
 
         sub_odom_ = this->create_subscription<nav_msgs::msg::Odometry>(
-            "/odom", 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
+            "/odometry/filtered", 50, std::bind(&ControladorMesas::callbackOdom, this, _1));
 
         sub_pedidos_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
             "entradas_pedidos", 10, std::bind(&ControladorMesas::callbackPedido, this, _1));
@@ -115,6 +117,9 @@ public:
         sub_establecer_origen_ = this->create_subscription<geometry_msgs::msg::Pose2D>(
             "controlador_mesas/establecer_origen", 10,
             std::bind(&ControladorMesas::callbackEstablecerOrigen, this, _1));
+
+        sub_pagado_ = this->create_subscription<std_msgs::msg::Bool>(
+            "controlador_mesas/pagado", 10, std::bind(&ControladorMesas::callbackPagado, this, _1));
 
         auto nav2_qos = rclcpp::QoS(rclcpp::KeepLast(1)).transient_local().reliable();
         sub_nav2_estado_ = this->create_subscription<std_msgs::msg::Bool>(
@@ -180,6 +185,7 @@ public:
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/autorizar_entrega");
         RCLCPP_INFO(this->get_logger(), "   - /nav2_lifecycle_manager_navigation/is_active");
         RCLCPP_INFO(this->get_logger(), "   - controlador_mesas/establecer_origen");
+        RCLCPP_INFO(this->get_logger(), "   - pagado");
 
         RCLCPP_INFO(this->get_logger(), "[INIT] Sistema de TF listo.");
         RCLCPP_INFO(this->get_logger(), "[INIT] Action Client navigate_to_pose inicializado.");
@@ -205,6 +211,7 @@ private:
     bool nav2_nodos_detectados_ = false;
     bool reinicio_en_progreso_ = false;
     bool entrega_autorizada_ = false; // autorización por lote de entregas
+    bool esperando_confirmacion_pago_ = false;
 
     bool odom_recibida_;
     rclcpp::Time odom_last_time_;
@@ -270,6 +277,7 @@ private:
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_nav2_estado_;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_autorizar_entrega_;
     rclcpp::Subscription<geometry_msgs::msg::Pose2D>::SharedPtr sub_establecer_origen_;
+    rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_pagado_;
 
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client_;
     GoalHandleNav::SharedPtr goal_handle_;
@@ -299,7 +307,7 @@ private:
         return action_ok;
     }
 
-    double yawFromQuat(const geometry_msgs::msg::Quaternion &q) {
+    double yawFromQuat(const geometry_msgs::msg::Quaternion &q) const {
         double siny = 2.0 * (q.w * q.z + q.x * q.y);
         double cosy = 1.0 - 2.0 * (q.y*q.y + q.z*q.z);
         return std::atan2(siny, cosy);
@@ -315,23 +323,49 @@ private:
         return tf2::toMsg(q);
     }
 
-    bool poseEnMapa(const geometry_msgs::msg::PoseStamped &pose_in,
-                    geometry_msgs::msg::PoseStamped &pose_out)
+    bool transformPose(const geometry_msgs::msg::PoseStamped &pose_in,
+                       const std::string &frame_destino,
+                       geometry_msgs::msg::PoseStamped &pose_out,
+                       const std::string &tag_log)
     {
         try {
-            tf_buffer_->transform(pose_in, pose_out, FRAME_MAP);
+            auto tf = tf_buffer_->lookupTransform(
+                frame_destino,
+                pose_in.header.frame_id,
+                tf2::TimePointZero, // usa el último TF disponible para evitar extrapolaciones
+                tf2::durationFromSec(0.5));
+            tf2::doTransform(pose_in, pose_out, tf);
+            pose_out.header.frame_id = frame_destino;
+            pose_out.header.stamp = pose_in.header.stamp;
             return true;
         } catch (const tf2::TransformException &ex) {
             RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 3000,
-                                 "[ORIGEN] Transform odom->map no disponible: %s", ex.what());
+                                 "[%s] Transform %s->%s no disponible: %s",
+                                 tag_log.c_str(),
+                                 pose_in.header.frame_id.c_str(),
+                                 frame_destino.c_str(),
+                                 ex.what());
         } catch (const std::exception &ex) {
             RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 3000,
-                                 "[ORIGEN] Error transformando odom->map: %s", ex.what());
+                                 "[%s] Error transformando %s->%s: %s",
+                                 tag_log.c_str(),
+                                 pose_in.header.frame_id.c_str(),
+                                 frame_destino.c_str(),
+                                 ex.what());
         } catch (...) {
             RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 3000,
-                                 "[ORIGEN] Error desconocido en transform odom->map");
+                                 "[%s] Error desconocido en transform %s->%s",
+                                 tag_log.c_str(),
+                                 pose_in.header.frame_id.c_str(),
+                                 frame_destino.c_str());
         }
         return false;
+    }
+
+    bool poseEnMapa(const geometry_msgs::msg::PoseStamped &pose_in,
+                    geometry_msgs::msg::PoseStamped &pose_out)
+    {
+        return transformPose(pose_in, FRAME_MAP, pose_out, "ORIGEN");
     }
 
     void publicarEstado(const std::string &s) {
@@ -475,6 +509,27 @@ private:
         intentarIniciar();
     }
 
+    void callbackPagado(const std_msgs::msg::Bool::SharedPtr msg) {
+        if (!esperando_confirmacion_pago_) {
+            if (msg->data) {
+                RCLCPP_INFO(this->get_logger(),
+                            "[PAGO] Confirmación recibida sin estar esperando; se ignora.");
+            }
+            return;
+        }
+
+        if (!msg->data) {
+            publicarEstado("Esperando confirmación de pago (pagado=0).");
+            return;
+        }
+
+        esperando_confirmacion_pago_ = false;
+        publicarEstado("Pago confirmado, continuando con la ruta.");
+        publicarValidacion("pago_confirmado");
+        encolarOrigenSiColaVacia();
+        postTarea();
+    }
+
     void callbackTimeoutControl(const std_msgs::msg::String::SharedPtr msg) {
         if (msg->data == "on") timeout_habilitado_ = true;
         else if (msg->data == "off") timeout_habilitado_ = false;
@@ -498,6 +553,7 @@ private:
             automatico_activo_ = true;
         }
         entrega_autorizada_ = false;
+        esperando_confirmacion_pago_ = false;
         publicarModoActual();
         intentarIniciar();
     }
@@ -525,6 +581,7 @@ private:
 
         state_ = IDLE;
         if (modo_ == MODO_ENTREGA) entrega_autorizada_ = false;
+        esperando_confirmacion_pago_ = false;
     }
 
     void callbackReiniciar(const std_msgs::msg::String::SharedPtr msg) {
@@ -575,6 +632,7 @@ private:
         odom_stable_ = false;
         objetivos_descartados_ = 0;
         origen_establecido_ = false;
+        esperando_confirmacion_pago_ = false;
 
         goal_handle_.reset();
         state_ = IDLE;
@@ -642,6 +700,11 @@ private:
 
     void intentarIniciar() {
         if (state_ != IDLE) return;
+        if (esperando_confirmacion_pago_) {
+            RCLCPP_INFO(this->get_logger(),
+                        "[PAGO] Bloqueado hasta recibir confirmación de pago (topic pagado).");
+            return;
+        }
 
         actualizarColaActiva();
         if (!cola_activa_) {
@@ -759,6 +822,18 @@ private:
         odom_raw.header = msg->header;
         odom_raw.pose = msg->pose.pose;
 
+        // Algunos drivers publican frame_id vacío o stamp 0; rellenamos para evitar fallos de TF.
+        if (odom_raw.header.frame_id.empty()) {
+            odom_raw.header.frame_id = "odom";
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
+                                 "[ODOM] header.frame_id vacío, usando \"odom\" por defecto.");
+        }
+        if (odom_raw.header.stamp.sec == 0 && odom_raw.header.stamp.nanosec == 0) {
+            odom_raw.header.stamp = this->now();
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
+                                 "[ODOM] header.stamp en 0, usando tiempo actual para TF.");
+        }
+
         geometry_msgs::msg::PoseStamped odom_mapa_tf;
         bool tiene_pose_mapa = poseEnMapa(odom_raw, odom_mapa_tf);
 
@@ -787,9 +862,9 @@ private:
         auto objetivo = cola_activa_->front();
 
         geometry_msgs::msg::PoseStamped odom_mapa;
-        try {
-            tf_buffer_->transform(odom_raw, odom_mapa, objetivo.header.frame_id);
-        } catch (...) { return; }
+        if (!transformPose(odom_raw, objetivo.header.frame_id, odom_mapa, "ODOM_OBJETIVO")) {
+            return;
+        }
 
         pub_odom_mapa_->publish(odom_mapa);
 
@@ -821,11 +896,14 @@ private:
         if (tiempo_validando > TIMEOUT_VALIDACION) {
             publicarEstado("Validación falló — timeout.");
             publicarValidacion("validacion_timeout");
+            auto objetivo_copia = objetivo;
+            bool objetivo_es_origen = objetivoEsOrigen(objetivo_copia);
             objetivos_descartados_++;
             registrarDescartado(objetivo, "validacion_timeout");
             cola_activa_->pop();
-            if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
+            if (objetivo_es_origen) actualizarAutorizacionEntregaTrasObjetivo(objetivo_copia);
             state_ = IDLE;
+            if (requerirPagoLuego(objetivo_copia)) return;
             encolarOrigenSiColaVacia();
             postTarea();
             return;
@@ -853,9 +931,12 @@ private:
         if ((this->now() - odom_stable_start_).seconds() >= TIEMPO_ESTABILIDAD) {
             publicarEstado("Llegada confirmada por odometría.");
             publicarValidacion("validacion_ok");
+            auto objetivo_copia = objetivo;
+            bool objetivo_es_origen = objetivoEsOrigen(objetivo_copia);
             cola_activa_->pop();
-            if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
+            if (objetivo_es_origen) actualizarAutorizacionEntregaTrasObjetivo(objetivo_copia);
             state_ = IDLE;
+            if (requerirPagoLuego(objetivo_copia)) return;
             encolarOrigenSiColaVacia();
             postTarea();
         }
@@ -955,15 +1036,47 @@ private:
         RCLCPP_INFO(this->get_logger(), "[ORIGEN] Cola vacía: se encola regreso automático al origen.");
     }
 
+    bool requerirPagoLuego(const geometry_msgs::msg::PoseStamped &objetivo) {
+        if (modo_ != MODO_PAGO) return false;
+        if (objetivoEsOrigen(objetivo)) return false;
+        esperando_confirmacion_pago_ = true;
+        publicarEstado("Esperando confirmación de pago en topic pagado.");
+        publicarValidacion("esperando_pago");
+        return true;
+    }
+
+    bool objetivoEsOrigen(const geometry_msgs::msg::PoseStamped &obj) const {
+        if (!origen_establecido_) return false;
+        double dx = obj.pose.position.x - origen_guardado_.x;
+        double dy = obj.pose.position.y - origen_guardado_.y;
+        double dist = std::sqrt(dx*dx + dy*dy);
+        double yaw_obj = yawFromQuat(obj.pose.orientation);
+        double dyaw = normalizarAngulo(yaw_obj - origen_guardado_.theta);
+        bool pos_ok = dist < TOLERANCIA_POS;
+        bool ang_ok = std::fabs(dyaw) < TOLERANCIA_ANG;
+        return pos_ok && ang_ok;
+    }
+
+    void actualizarAutorizacionEntregaTrasObjetivo(const geometry_msgs::msg::PoseStamped &obj) {
+        if (modo_ == MODO_ENTREGA && objetivoEsOrigen(obj)) {
+            entrega_autorizada_ = false;
+        }
+    }
+
     void manejarFalloNavegacion(const std::string &motivo) {
         actualizarColaActiva();
+        geometry_msgs::msg::PoseStamped objetivo_copia;
+        bool tiene_objetivo = false;
         if (cola_activa_ && !cola_activa_->empty()) {
+            objetivo_copia = cola_activa_->front();
+            tiene_objetivo = true;
             registrarDescartado(cola_activa_->front(), motivo);
             cola_activa_->pop();
             objetivos_descartados_++;
-            if (modo_ == MODO_ENTREGA && cola_entregas_.empty()) entrega_autorizada_ = false;
+            if (objetivoEsOrigen(objetivo_copia)) actualizarAutorizacionEntregaTrasObjetivo(objetivo_copia);
         }
         state_ = IDLE;
+        if (tiene_objetivo && requerirPagoLuego(objetivo_copia)) return;
         encolarOrigenSiColaVacia();
         postTarea();
     }
